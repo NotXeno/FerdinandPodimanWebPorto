@@ -38,7 +38,7 @@ export default function Contact() {
               </a>
               <div className="grid grid-cols-2 gap-3">
                 <a href={contact.instagram} target="_blank" rel="noopener noreferrer" className="p-4 rounded-2xl bg-stone-900 border border-stone-800 hover:border-stone-700 transition-colors">
-                  <div className="text-xs text-stone-500">Instagram</div><div className="text-sm font-medium text-stone-100">@{personalInfo.name.split(" ")[0].toLowerCase()}.grade</div>
+                  <div className="text-xs text-stone-500">Instagram</div><div className="text-sm font-medium text-stone-100">@ferdipodiman</div>
                 </a>
                 <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" className="p-4 rounded-2xl bg-stone-900 border border-stone-800 hover:border-stone-700 transition-colors">
                   <div className="text-xs text-stone-500">LinkedIn</div><div className="text-sm font-medium text-stone-100">Connect professionally</div>
