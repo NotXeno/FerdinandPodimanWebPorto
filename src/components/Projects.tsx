@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { workshops, certificates, events, onlineClasses, offlineClassAlbums } from "@/data/portfolio";
+import { certificates, events, onlineClasses, offlineClassAlbums, workshopAlbums } from "@/data/portfolio";
 import Lightbox, { type LightboxItem } from "@/components/Lightbox";
 
 type Tab = "Workshop" | "Certificates" | "Online Classes" | "Offline Classes";
@@ -8,6 +8,7 @@ type Tab = "Workshop" | "Certificates" | "Online Classes" | "Offline Classes";
 export default function Projects() {
   const [active, setActive] = useState<Tab>("Workshop");
   const [activeOfflineAlbum, setActiveOfflineAlbum] = useState<string | null>(null);
+  const [activeWorkshopAlbum, setActiveWorkshopAlbum] = useState<string | null>(null);
   const [lightboxItems, setLightboxItems] = useState<LightboxItem[]>([]);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
@@ -17,11 +18,15 @@ export default function Projects() {
   };
   const closeLightbox = () => setLightboxIndex(null);
 
-  const workshopItems: LightboxItem[] = workshops.map((w) => ({
+  const workshopItems: LightboxItem[] = (activeWorkshopAlbum
+    ? workshopAlbums.find((a) => a.id === activeWorkshopAlbum)?.photos ?? []
+    : []
+  ).map((w) => ({
     image: w.image,
     title: w.title,
     subtitle: w.date,
   }));
+  const activeWorkshop = workshopAlbums.find((a) => a.id === activeWorkshopAlbum) ?? null;
   const certItems: LightboxItem[] = certificates.map((c) => ({
     image: c.image,
     title: c.title,
@@ -56,7 +61,7 @@ export default function Projects() {
             {(["Workshop", "Certificates", "Online Classes", "Offline Classes"] as Tab[]).map((t) => (
               <button
                 key={t}
-                onClick={() => { setActive(t); setActiveOfflineAlbum(null); setLightboxIndex(null); }}
+                onClick={() => { setActive(t); setActiveOfflineAlbum(null); setActiveWorkshopAlbum(null); setLightboxIndex(null); }}
                 className={`shrink-0 whitespace-nowrap px-4 sm:px-5 py-2 rounded-full text-xs font-bold tracking-widest uppercase transition-colors ${active === t ? "bg-[#d4a574] text-black" : "text-stone-400 hover:text-stone-200"}`}
               >
                 {t}
@@ -67,39 +72,79 @@ export default function Projects() {
 
         {active === "Workshop" && (
           <div id="workshop-gallery" className="mt-10">
-            {workshops.length === 0 ? (
-              <div className="rounded-2xl border border-dashed border-stone-700 bg-stone-900/50 p-10 text-center">
-                <p className="text-stone-200 font-medium">Workshop photos coming soon</p>
-                <p className="mt-2 text-sm text-stone-500">
-                  Drop speaker-at-workshop photos into <span className="font-mono text-stone-300">public/assets/workshop/</span> (.webp preferred),
-                  then add entries to <span className="font-mono text-stone-300">workshops[]</span> in <span className="font-mono text-stone-300">src/data/portfolio.ts</span>
-                </p>
-              </div>
+            {!activeWorkshop ? (
+              <>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                  {workshopAlbums.map((album) => (
+                    <button
+                      key={album.id}
+                      onClick={() => setActiveWorkshopAlbum(album.id)}
+                      className="group text-left rounded-2xl overflow-hidden border border-stone-800 bg-stone-900 hover:border-[#d4a574]/40 transition-colors cursor-pointer"
+                    >
+                      <div className="relative aspect-[4/3] bg-stone-800 overflow-hidden">
+                        <img
+                          src={album.cover}
+                          alt={album.title}
+                          className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+                        <span className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/70 border border-stone-700 text-[10px] tracking-widest uppercase text-stone-200">
+                          <span aria-hidden>📁</span> Folder
+                        </span>
+                        <span className="absolute bottom-3 left-3 px-2.5 py-1 rounded-full bg-[#d4a574] text-black text-[10px] font-bold tracking-widest uppercase">
+                          {album.photos.length} Photos
+                        </span>
+                      </div>
+                      <div className="p-4">
+                        <h3 className="font-semibold text-stone-100 leading-tight text-sm">{album.title}</h3>
+                        <p className="mt-1 text-xs text-stone-400">{album.date} • Speaker at Workshop</p>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+                <p className="mt-6 text-xs text-stone-500">Speaker folders from <span className="font-mono text-stone-300">public/assets/workshop/</span> — click a folder to view photos</p>
+              </>
             ) : (
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                {workshops.map((w, i) => (
-                  <button
-                    key={w.id}
-                    onClick={() => openLightbox(workshopItems, i)}
-                    className="group text-left rounded-2xl overflow-hidden border border-stone-800 bg-stone-900 hover:border-[#d4a574]/40 transition-colors cursor-zoom-in"
-                  >
-                    <div className="relative aspect-[4/3] bg-stone-800 overflow-hidden">
-                      <img
-                        src={w.image}
-                        alt={w.title}
-                        className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                      <span className="absolute bottom-3 right-3 px-2.5 py-1 rounded-full bg-black/70 border border-stone-700 text-[10px] tracking-widest uppercase text-[#d4a574]">⊕ Preview</span>
-                    </div>
-                    <div className="p-4">
-                      <h3 className="font-semibold text-stone-100 leading-tight text-sm">{w.title}</h3>
-                      <p className="mt-1 text-xs text-stone-400">{w.date}</p>
-                    </div>
-                  </button>
-                ))}
-              </div>
+              <>
+                <button
+                  onClick={() => { setActiveWorkshopAlbum(null); setLightboxIndex(null); }}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-stone-700 bg-stone-900 text-xs font-bold tracking-widest uppercase text-stone-300 hover:border-[#d4a574]/50 hover:text-[#d4a574] transition-colors"
+                >
+                  ← Back to folders
+                </button>
+                <div className="mt-4 flex items-baseline justify-between gap-4">
+                  <div>
+                    <h3 className="text-lg font-bold text-stone-100">{activeWorkshop.title}</h3>
+                    <p className="text-xs text-stone-400">{activeWorkshop.date} • {activeWorkshop.photos.length} photos</p>
+                  </div>
+                </div>
+                <div className="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                  {activeWorkshop.photos.map((w, i) => (
+                    <button
+                      key={w.id}
+                      onClick={() => openLightbox(workshopItems, i)}
+                      className="group text-left rounded-2xl overflow-hidden border border-stone-800 bg-stone-900 hover:border-[#d4a574]/40 transition-colors cursor-zoom-in"
+                    >
+                      <div className="relative aspect-[4/3] bg-stone-800 overflow-hidden">
+                        <img
+                          src={w.image}
+                          alt={w.title}
+                          className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/70 border border-stone-700 text-[10px] tracking-widest uppercase text-stone-200">Speaker</span>
+                        <span className="absolute bottom-3 right-3 px-2.5 py-1 rounded-full bg-black/70 border border-stone-700 text-[10px] tracking-widest uppercase text-[#d4a574]">⊕ Preview</span>
+                      </div>
+                      <div className="p-4">
+                        <h3 className="font-semibold text-stone-100 leading-tight text-sm">{w.title}</h3>
+                        <p className="mt-1 text-xs text-stone-400">{w.date}</p>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </>
             )}
 
             {/* speaking engagements — merged from Events */}

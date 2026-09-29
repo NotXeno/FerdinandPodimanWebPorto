@@ -100,18 +100,160 @@ export const certificates = [
   },
 ];
 
-// Workshop — photo documentation of Ferdinand as speaker/teacher.
-// Drop photos into public/assets/workshop/ (.webp preferred) and add an entry per photo.
-export const workshops: {
+// Workshop (Speaker at Workshop) — photo documentation of Ferdinand as speaker.
+// Grouped by venue to match Drive folders. Photos in public/assets/workshop/<slug>/ (.webp)
+export interface WorkshopPhoto {
   id: string;
   title: string;
   date: string;
   image: string;
   tags: string[];
-}[] = [
-  // Example (uncomment after uploading):
-  // { id: "ws1", title: "Speaker — Color Grading Workshop", date: "2024", image: "/assets/workshop/workshop-1.webp", tags: ["Speaker", "Workshop", "DaVinci Resolve"] },
+}
+
+export interface WorkshopAlbum {
+  id: string;
+  title: string;
+  date: string;
+  cover: string;
+  photos: WorkshopPhoto[];
+}
+
+function wsPhotos(
+  albumId: string,
+  venue: string,
+  date: string,
+  slug: string,
+  files: string[],
+): WorkshopPhoto[] {
+  return files.map((f, i) => ({
+    id: `${albumId}-${i + 1}`,
+    title: `Speaker — ${venue}`,
+    date,
+    image: `/assets/workshop/${slug}/${f}`,
+    tags: ["Speaker", "Workshop", date],
+  }));
+}
+
+export const workshopAlbums: WorkshopAlbum[] = [
+  {
+    id: "covenant-2024",
+    title: "Covenant City Church - 2024",
+    date: "2024",
+    cover: "/assets/workshop/covenant-2024/cover.webp",
+    photos: wsPhotos("covenant-2024", "Covenant City Church 2024", "2024", "covenant-2024", [
+      "cover.webp",
+      "20240406-105938.webp",
+      "20240406-110828.webp",
+      "20240406-112050.webp",
+      "20240406-112307.webp",
+      "20240406-122706.webp",
+      "20240406-123953.webp",
+    ]),
+  },
+  {
+    id: "doss-2025",
+    title: "DOSS Vaganza - 2025",
+    date: "2025",
+    cover: "/assets/workshop/doss-2025/cover.webp",
+    photos: wsPhotos("doss-2025", "DOSS Vaganza 2025", "2025", "doss-2025", [
+      "cover.webp",
+      "20251129-113203.webp",
+      "20251129-120024.webp",
+      "20251129-120122.webp",
+      "20251129-121913.webp",
+      "20251129-123431.webp",
+      "dsc09727.webp",
+    ]),
+  },
+  {
+    id: "isi-surakarta-2025",
+    title: "ISI Surakarta - 2025",
+    date: "2025",
+    cover: "/assets/workshop/isi-surakarta-2025/cover.webp",
+    photos: wsPhotos("isi-surakarta-2025", "ISI Surakarta 2025", "2025", "isi-surakarta-2025", [
+      "cover.webp",
+      "dsc04504.webp",
+      "fsp00024.webp",
+      "fsp06164.webp",
+      "fsp06173.webp",
+      "fsp06181.webp",
+    ]),
+  },
+  {
+    id: "isi-yogyakarta-2025",
+    title: "ISI Yogyakarta - 2025",
+    date: "2025",
+    cover: "/assets/workshop/isi-yogyakarta-2025/cover.webp",
+    photos: wsPhotos("isi-yogyakarta-2025", "ISI Yogyakarta 2025", "2025", "isi-yogyakarta-2025", [
+      "cover.webp",
+      "dsc00779.webp",
+      "dsc00835.webp",
+      "dsc00836.webp",
+      "dsc00837.webp",
+      "dsc00850.webp",
+      "dsc00856.webp",
+      "dsc08397.webp",
+      "dsc08402.webp",
+      "dsc08408.webp",
+      "dsc08415.webp",
+    ]),
+  },
+  {
+    id: "jfa-2025",
+    title: "Jogja Film Academy (JFA) - 2025",
+    date: "2025",
+    cover: "/assets/workshop/jfa-2025/cover.webp",
+    photos: wsPhotos("jfa-2025", "Jogja Film Academy (JFA) 2025", "2025", "jfa-2025", [
+      "cover.webp",
+      "20251107-111917.webp",
+      "20251107-112217.webp",
+      "20251107-154852.webp",
+      "20251107-154857.webp",
+      "img-5515.webp",
+      "img-5518-2.webp",
+      "img-5521-2.webp",
+    ]),
+  },
+  {
+    id: "segi-2026",
+    title: "Segi Film Institute - 2026",
+    date: "2026",
+    cover: "/assets/workshop/segi-2026/cover.webp",
+    photos: wsPhotos("segi-2026", "Segi Film Institute 2026", "2026", "segi-2026", [
+      "cover.webp",
+      "drc09537.webp",
+      "drc09541.webp",
+      "drc09573.webp",
+      "drc09576.webp",
+      "drc09579.webp",
+    ]),
+  },
+  {
+    id: "udinus-2026",
+    title: "UDINUS Semarang - 2026",
+    date: "2026",
+    cover: "/assets/workshop/udinus-2026/cover.webp",
+    photos: wsPhotos("udinus-2026", "UDINUS Semarang 2026", "2026", "udinus-2026", [
+      "cover.webp",
+      "drc09256.webp",
+      "drc09291.webp",
+      "drc09303.webp",
+      "drc09341.webp",
+      "drc09345.webp",
+      "drc09369.webp",
+      "drc09389.webp",
+      "drc09391.webp",
+      "drc09399.webp",
+      "drc09423.webp",
+      "drc09435.webp",
+      "drc09436.webp",
+      "drc09442.webp",
+    ]),
+  },
 ];
+
+// Flat list kept for backwards-compat (derived from albums)
+export const workshops: WorkshopPhoto[] = workshopAlbums.flatMap((a) => a.photos);
 
 export const events = [
   { title: "Color as Storytelling — Keynote", audience: "250+", year: "2024", role: "Keynote Speaker", location: "Jakarta Creative Summit" },
@@ -283,4 +425,4 @@ export const contact = {
 };
 
 // NOTE: Photo upload — keep for reference (no videos on this site)
-// - Photo (.webp preferred) -> public/images/avatar.webp (hero) + public/assets/photo-profile/, public/assets/certificates/, public/assets/workshop/, public/assets/online-class/, public/assets/private-offline/
+// - Photo (.webp preferred) -> public/images/avatar.webp (hero) + public/assets/photo-profile/, public/assets/certificates/, public/assets/workshop/<slug>/, public/assets/online-class/, public/assets/private-offline/
