@@ -8,8 +8,8 @@ export const personalInfo = {
   whatsapp: "6282113716093", // WhatsApp — wa.me link
   location: "Jakarta, Indonesia",
   avatar: "/images/avatar.webp",
-  instagram: "https://instagram.com/ferdinand.grade",
-  linkedin: "https://linkedin.com/in/ferdinandpodimand",
+  instagram: "https://instagram.com/ferdipodiman",
+  linkedin: "https://www.linkedin.com/in/ferdinand-podiman/",
   behance: "https://behance.net/ferdinandpodimand",
   vimeo: "https://vimeo.com/ferdinandpodimand",
   github: "https://github.com/ferdinandpodimand",
