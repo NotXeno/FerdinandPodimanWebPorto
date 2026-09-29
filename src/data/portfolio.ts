@@ -191,36 +191,89 @@ export const onlineClasses = [
 },
 ];
 
-export const offlineClasses = [
-  { id: "ofc1", title: "Offline Workshop — Jakarta 2025", date: "Nov 13, 2025", image: "/assets/private-offline/20251113_125748.webp", tags: ["Workshop", "Jakarta", "Hands-on"] },
-  { id: "ofc2", title: "Offline Workshop — Jakarta 2025", date: "Nov 14, 2025", image: "/assets/private-offline/20251114_124401.webp", tags: ["Workshop", "Jakarta", "Hands-on"] },
-  { id: "ofc3", title: "Private Class Session", date: "2024", image: "/assets/private-offline/DSC00159.webp", tags: ["Private Class", "Mentoring"] },
-  { id: "ofc4", title: "Private Class Session", date: "2024", image: "/assets/private-offline/DSC00181.webp", tags: ["Private Class", "Mentoring"] },
-  { id: "ofc5", title: "Private Class Session", date: "2024", image: "/assets/private-offline/DSC00187.webp", tags: ["Private Class", "Mentoring"] },
-  { id: "ofc6", title: "Private Class Session", date: "2024", image: "/assets/private-offline/DSC00251.webp", tags: ["Private Class", "Mentoring"] },
-  { id: "ofc7", title: "Private Class Session", date: "2024", image: "/assets/private-offline/DSC00282.webp", tags: ["Private Class", "Mentoring"] },
-  { id: "ofc8", title: "Private Class Session", date: "2024", image: "/assets/private-offline/DSC00416.webp", tags: ["Private Class", "Mentoring"] },
-  { id: "ofc9", title: "Private Class Session", date: "2024", image: "/assets/private-offline/DSC00441.webp", tags: ["Private Class", "Mentoring"] },
-  { id: "ofc10", title: "Private Class Session", date: "2024", image: "/assets/private-offline/DSC00456.webp", tags: ["Private Class", "Mentoring"] },
-  { id: "ofc11", title: "Private Class Session", date: "2024", image: "/assets/private-offline/DSC00457.webp", tags: ["Private Class", "Mentoring"] },
-  { id: "ofc12", title: "Private Class Session", date: "2024", image: "/assets/private-offline/DSC00521.webp", tags: ["Private Class", "Mentoring"] },
-  { id: "ofc12b", title: "Private Class Session", date: "2024", image: "/assets/private-offline/DSC00523.webp", tags: ["Private Class", "Mentoring"] },
-  { id: "ofc13", title: "Private Class Session", date: "2024", image: "/assets/private-offline/DSC00567.webp", tags: ["Private Class", "Mentoring"] },
-  { id: "ofc14", title: "Private Class Session", date: "2024", image: "/assets/private-offline/DSC00572.webp", tags: ["Private Class", "Mentoring"] },
-  { id: "ofc15", title: "Private Class Session", date: "2024", image: "/assets/private-offline/DSC00652.webp", tags: ["Private Class", "Mentoring"] },
-  { id: "ofc16", title: "Private Class Session", date: "2024", image: "/assets/private-offline/DSC00689.webp", tags: ["Private Class", "Mentoring"] },
-  { id: "ofc17", title: "Private Class Session", date: "2024", image: "/assets/private-offline/DSC00724.webp", tags: ["Private Class", "Mentoring"] },
-  { id: "ofc18", title: "Private Class Session", date: "2024", image: "/assets/private-offline/DSC00741.webp", tags: ["Private Class", "Mentoring"] },
-  { id: "ofc19", title: "Private Class Session", date: "2024", image: "/assets/private-offline/DSC08468.webp", tags: ["Private Class", "Mentoring"] },
-  { id: "ofc20", title: "Private Class Session", date: "2024", image: "/assets/private-offline/DSC08624.webp", tags: ["Private Class", "Mentoring"] },
-  { id: "ofc21", title: "Private Class Session", date: "2024", image: "/assets/private-offline/DSC08637.webp", tags: ["Private Class", "Mentoring"] },
-  { id: "ofc22", title: "Private Class Session", date: "2024", image: "/assets/private-offline/DSC08801.webp", tags: ["Private Class", "Mentoring"] },
-  { id: "ofc23", title: "Private Class Session", date: "2024", image: "/assets/private-offline/DSC08804.webp", tags: ["Private Class", "Mentoring"] },
-  { id: "ofc24", title: "Private Class Session", date: "2024", image: "/assets/private-offline/DSC08821.webp", tags: ["Private Class", "Mentoring"] },
-  { id: "ofc25", title: "Private Class Session", date: "2024", image: "/assets/private-offline/DSC09231.webp", tags: ["Private Class", "Mentoring"] },
-  { id: "ofc26", title: "Private Class Session", date: "2024", image: "/assets/private-offline/DSC09247.webp", tags: ["Private Class", "Mentoring"] },
-  { id: "ofc27", title: "Private Class Session", date: "2024", image: "/assets/private-offline/DSC09252.webp", tags: ["Private Class", "Mentoring"] },
+export interface OfflineClassPhoto {
+  id: string;
+  title: string;
+  date: string;
+  image: string;
+  tags: string[];
+}
+
+export interface OfflineClassAlbum {
+  id: string;
+  title: string;
+  date: string;
+  cover: string;
+  photos: OfflineClassPhoto[];
+}
+
+// Private Class — grouped by month to match Drive folders.
+// Photos live in public/assets/private-offline/ (.webp)
+export const offlineClassAlbums: OfflineClassAlbum[] = [
+  {
+    id: "nov-2025",
+    title: "01. November 2025",
+    date: "November 2025",
+    cover: "/assets/private-offline/DSC08637.webp",
+    photos: [
+      { id: "nov25-1", title: "Private Class — November 2025", date: "Nov 2025", image: "/assets/private-offline/DSC08637.webp", tags: ["Private Class", "Mentoring"] },
+      { id: "nov25-2", title: "Private Class — November 2025", date: "Nov 2025", image: "/assets/private-offline/DSC08624.webp", tags: ["Private Class", "Mentoring"] },
+      { id: "nov25-3", title: "Private Class — November 2025", date: "Nov 2025", image: "/assets/private-offline/DSC08468.webp", tags: ["Private Class", "Mentoring"] },
+      { id: "nov25-4", title: "Private Class — November 2025", date: "Nov 14, 2025", image: "/assets/private-offline/20251114_124401.webp", tags: ["Workshop", "Jakarta", "Hands-on"] },
+      { id: "nov25-5", title: "Private Class — November 2025", date: "Nov 13, 2025", image: "/assets/private-offline/20251113_125748.webp", tags: ["Workshop", "Jakarta", "Hands-on"] },
+    ],
+  },
+  {
+    id: "dec-2025",
+    title: "02. December 2025",
+    date: "December 2025",
+    cover: "/assets/private-offline/DSC09252.webp",
+    photos: [
+      { id: "dec25-1", title: "Private Class — December 2025", date: "Dec 2025", image: "/assets/private-offline/DSC09252.webp", tags: ["Private Class", "Mentoring"] },
+      { id: "dec25-2", title: "Private Class — December 2025", date: "Dec 2025", image: "/assets/private-offline/DSC09247.webp", tags: ["Private Class", "Mentoring"] },
+      { id: "dec25-3", title: "Private Class — December 2025", date: "Dec 2025", image: "/assets/private-offline/DSC09231.webp", tags: ["Private Class", "Mentoring"] },
+      { id: "dec25-4", title: "Private Class — December 2025", date: "Dec 2025", image: "/assets/private-offline/DSC08821.webp", tags: ["Private Class", "Mentoring"] },
+      { id: "dec25-5", title: "Private Class — December 2025", date: "Dec 2025", image: "/assets/private-offline/DSC08804.webp", tags: ["Private Class", "Mentoring"] },
+      { id: "dec25-6", title: "Private Class — December 2025", date: "Dec 2025", image: "/assets/private-offline/DSC08801.webp", tags: ["Private Class", "Mentoring"] },
+    ],
+  },
+  {
+    id: "mar-2026",
+    title: "03. March 2026",
+    date: "March 2026",
+    cover: "/assets/private-offline/DSC00282.webp",
+    photos: [
+      { id: "mar26-1", title: "Private Class — March 2026", date: "Mar 2026", image: "/assets/private-offline/DSC00282.webp", tags: ["Private Class", "Mentoring"] },
+      { id: "mar26-2", title: "Private Class — March 2026", date: "Mar 2026", image: "/assets/private-offline/DSC00251.webp", tags: ["Private Class", "Mentoring"] },
+      { id: "mar26-3", title: "Private Class — March 2026", date: "Mar 2026", image: "/assets/private-offline/DSC00187.webp", tags: ["Private Class", "Mentoring"] },
+      { id: "mar26-4", title: "Private Class — March 2026", date: "Mar 2026", image: "/assets/private-offline/DSC00181.webp", tags: ["Private Class", "Mentoring"] },
+      { id: "mar26-5", title: "Private Class — March 2026", date: "Mar 2026", image: "/assets/private-offline/DSC00159.webp", tags: ["Private Class", "Mentoring"] },
+    ],
+  },
+  {
+    id: "apr-2026",
+    title: "04. April 2026",
+    date: "April 2026",
+    cover: "/assets/private-offline/DSC00741.webp",
+    photos: [
+      { id: "apr26-1", title: "Private Class — April 2026", date: "Apr 2026", image: "/assets/private-offline/DSC00741.webp", tags: ["Private Class", "Mentoring"] },
+      { id: "apr26-2", title: "Private Class — April 2026", date: "Apr 2026", image: "/assets/private-offline/DSC00724.webp", tags: ["Private Class", "Mentoring"] },
+      { id: "apr26-3", title: "Private Class — April 2026", date: "Apr 2026", image: "/assets/private-offline/DSC00689.webp", tags: ["Private Class", "Mentoring"] },
+      { id: "apr26-4", title: "Private Class — April 2026", date: "Apr 2026", image: "/assets/private-offline/DSC00652.webp", tags: ["Private Class", "Mentoring"] },
+      { id: "apr26-5", title: "Private Class — April 2026", date: "Apr 2026", image: "/assets/private-offline/DSC00572.webp", tags: ["Private Class", "Mentoring"] },
+      { id: "apr26-6", title: "Private Class — April 2026", date: "Apr 2026", image: "/assets/private-offline/DSC00567.webp", tags: ["Private Class", "Mentoring"] },
+      { id: "apr26-7", title: "Private Class — April 2026", date: "Apr 2026", image: "/assets/private-offline/DSC00523.webp", tags: ["Private Class", "Mentoring"] },
+      { id: "apr26-8", title: "Private Class — April 2026", date: "Apr 2026", image: "/assets/private-offline/DSC00521.webp", tags: ["Private Class", "Mentoring"] },
+      { id: "apr26-9", title: "Private Class — April 2026", date: "Apr 2026", image: "/assets/private-offline/DSC00457.webp", tags: ["Private Class", "Mentoring"] },
+      { id: "apr26-10", title: "Private Class — April 2026", date: "Apr 2026", image: "/assets/private-offline/DSC00456.webp", tags: ["Private Class", "Mentoring"] },
+      { id: "apr26-11", title: "Private Class — April 2026", date: "Apr 2026", image: "/assets/private-offline/DSC00441.webp", tags: ["Private Class", "Mentoring"] },
+      { id: "apr26-12", title: "Private Class — April 2026", date: "Apr 2026", image: "/assets/private-offline/DSC00416.webp", tags: ["Private Class", "Mentoring"] },
+    ],
+  },
 ];
+
+// Flat list kept for backwards-compat (derived from albums)
+export const offlineClasses: OfflineClassPhoto[] = offlineClassAlbums.flatMap((a) => a.photos);
 
 export const contact = {
   email: personalInfo.email,
