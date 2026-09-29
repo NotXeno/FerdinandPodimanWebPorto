@@ -1,18 +1,15 @@
-// Ferdinand Podimand — Professional Color Grader
+// Ferdinand Podiman — Professional Color Grader
 export const personalInfo = {
-  name: "Ferdinand Podimand",
+  name: "Ferdinand Podiman",
   title: "Professional Color Grader",
   subtitle: "Crafting cinematic visuals & emotional stories through color — 8 years of grading for film, commercial & music video.",
-  email: "ferdinand.podimand@email.com",
+  email: "ferdi.podiman@gmail.com",
   phone: "+62 821-1371-6093",
   whatsapp: "6282113716093", // WhatsApp — wa.me link
   location: "Jakarta, Indonesia",
   avatar: "/images/avatar.webp",
   instagram: "https://instagram.com/ferdipodiman",
   linkedin: "https://www.linkedin.com/in/ferdinand-podiman/",
-  behance: "https://behance.net/ferdinandpodimand",
-  vimeo: "https://vimeo.com/ferdinandpodimand",
-  github: "https://github.com/ferdinandpodimand",
 };
 
 export const stats = [
@@ -23,7 +20,7 @@ export const stats = [
 ];
 
 export const about = {
-  description: `I'm Ferdinand Podimand, a Professional Color Grader based in Indonesia with 8 years of experience shaping visuals that feel. From indie films to national commercials and music videos, I specialize in DaVinci Resolve and cinematic color science to translate directors' visions into emotion.
+  description: `I'm Ferdinand Podiman, a Professional Color Grader based in Indonesia with 8 years of experience shaping visuals that feel. From indie films to national commercials and music videos, I specialize in DaVinci Resolve and cinematic color science to translate directors' visions into emotion.
 
 Beyond the suite, I'm passionate about sharing knowledge. I've taught and presented at 10+ events — workshops, seminars, and masterclasses — reaching 660+ aspiring filmmakers, colorists, and students. I believe color is not just correction; it's storytelling.`,
   highlight: "Color is where technical precision meets emotional intuition.",
@@ -282,9 +279,6 @@ export const contact = {
   whatsappUrl: `https://wa.me/6282113716093?text=${encodeURIComponent("Halo Ferdinand, saya tertarik dengan jasa color grading Anda. Bisa diskusi project?")}`,
   linkedin: personalInfo.linkedin,
   instagram: personalInfo.instagram,
-  vimeo: personalInfo.vimeo,
-  behance: personalInfo.behance,
-  github: personalInfo.github,
   message: "Have a film, commercial or music video that needs soul through color? Let's talk looks, workflow and story.",
 };
 

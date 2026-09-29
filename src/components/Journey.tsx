@@ -12,7 +12,7 @@ export default function Journey() {
             <p className="mt-4 text-stone-400 leading-relaxed">{about.description}</p>
             <div className="mt-6 rounded-2xl border-l-2 border-[#d4a574] bg-stone-900/70 p-5">
               <p className="text-stone-200 italic">“{about.highlight}”</p>
-              <p className="mt-2 text-xs tracking-widest uppercase text-stone-500">— Ferdinand Podimand</p>
+              <p className="mt-2 text-xs tracking-widest uppercase text-stone-500">— Ferdinand Podiman</p>
             </div>
 
             <div className="mt-10">

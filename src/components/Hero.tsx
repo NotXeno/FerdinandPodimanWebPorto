@@ -25,7 +25,7 @@ export default function Hero() {
 
             <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-bold leading-[0.95] tracking-tight">
               <span className="block text-stone-100">Ferdinand</span>
-              <span className="block gold-text">Podimand</span>
+              <span className="block gold-text">Podiman</span>
             </h1>
             <p className="mt-3 text-[11px] tracking-[0.35em] uppercase text-stone-500 font-mono">Professional Color Grader</p>
 
