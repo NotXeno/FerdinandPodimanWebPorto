@@ -27,10 +27,10 @@ export default function Hero() {
               <span className="block text-stone-100">Ferdinand</span>
               <span className="block gold-text">Podiman</span>
             </h1>
-            <p className="mt-3 text-[11px] tracking-[0.35em] uppercase text-stone-500 font-mono">Professional Color Grader</p>
+            <p className="mt-3 text-[11px] tracking-[0.35em] uppercase text-stone-500 font-mono">Professional Colorist</p>
 
             <p className="mt-6 text-[17px] leading-relaxed text-stone-300 max-w-xl">
-              Crafting cinematic visuals & emotional stories through color. 8 years shaping looks for film, commercial & music video — and teaching 660+ filmmakers to see light differently.
+              Crafting cinematic visuals & emotional stories through color. Shaping looks for film, commercial & music video since 2018 — and teaching 660+ filmmakers to see light differently.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -65,33 +65,12 @@ export default function Hero() {
             <div className="relative rounded-[28px] overflow-hidden border border-stone-800 bg-stone-900 aspect-[4/5] lg:aspect-[4/5.2]">
               <Image
                 src={personalInfo.avatar}
-                alt={`${personalInfo.name} — Professional Color Grader`}
+                alt={`${personalInfo.name} — Professional Colorist`}
                 fill
                 className="object-cover"
                 priority
                 sizes="(max-width: 1024px) 100vw, 45vw"
               />
-              {/* scope bars overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-              <div className="absolute top-0 inset-x-0 h-10 bg-black/60 backdrop-blur flex items-center justify-between px-4">
-                <span className="text-[10px] tracking-[0.2em] uppercase text-stone-400 font-mono">Vectorscope</span>
-                <span className="text-[10px] text-[#d4a574] font-mono">00:42:18</span>
-              </div>
-              <div className="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black via-black/60 to-transparent">
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
-                  <span className="text-[10px] tracking-[0.2em] uppercase text-stone-300 font-mono">DaVinci Resolve • Color Suite</span>
-                </div>
-              </div>
-            </div>
-            {/* floating badge */}
-            <div className="absolute -bottom-4 -left-2 sm:-left-4 bg-[#d4a574] text-black rounded-2xl px-5 py-4 shadow-xl">
-              <div className="text-2xl font-bold leading-none">8 Years</div>
-              <div className="text-[11px] tracking-widest uppercase font-semibold">Grading Experience</div>
-            </div>
-            <div className="absolute -top-3 -right-2 sm:-right-3 bg-stone-900 border border-stone-700 text-stone-100 rounded-2xl px-4 py-3 shadow-xl">
-              <div className="text-[10px] tracking-[0.2em] uppercase text-stone-400">Scopes</div>
-              <div className="flex gap-1 mt-1"><span className="w-6 h-1 rounded bg-[#d4a574]" /><span className="w-6 h-1 rounded bg-emerald-500" /><span className="w-6 h-1 rounded bg-sky-500" /></div>
             </div>
           </div>
         </div>

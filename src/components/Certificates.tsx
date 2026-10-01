@@ -17,7 +17,7 @@ export default function Certificates() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <p className="text-[11px] tracking-[0.3em] uppercase text-[#d4a574]">Credentials</p>
         <h2 className="mt-2 text-3xl sm:text-4xl font-bold text-stone-100">Certified craft</h2>
-        <p className="mt-2 text-stone-400 max-w-xl">Official certifications backing 8 years behind the scopes. Click any image to preview.</p>
+        <p className="mt-2 text-stone-400 max-w-xl">Official certifications backing a craft honed since 2018. Click any image to preview.</p>
 
         <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {certificates.map((c, i) => (

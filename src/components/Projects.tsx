@@ -164,20 +164,6 @@ export default function Projects() {
                   </div>
                 ))}
               </div>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <div className="rounded-xl bg-[#d4a574] text-black px-6 py-4">
-                  <div className="text-2xl font-bold leading-none">660+</div>
-                  <div className="text-[11px] tracking-widest uppercase font-bold">Total Audience</div>
-                </div>
-                <div className="rounded-xl border border-stone-800 bg-stone-900 px-6 py-4">
-                  <div className="text-2xl font-bold leading-none text-stone-100">10+</div>
-                  <div className="text-[11px] tracking-widest uppercase text-stone-500 font-bold">Events</div>
-                </div>
-                <div className="rounded-xl border border-stone-800 bg-stone-900 px-6 py-4">
-                  <div className="text-2xl font-bold leading-none text-stone-100">6 Years</div>
-                  <div className="text-[11px] tracking-widest uppercase text-stone-500 font-bold">Teaching</div>
-                </div>
-              </div>
             </div>
           </div>
         )}

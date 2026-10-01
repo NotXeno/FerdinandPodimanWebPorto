@@ -15,17 +15,17 @@ const jetmono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Ferdinand Podiman | Professional Color Grader",
+    default: "Ferdinand Podiman | Professional Colorist",
     template: "%s | Ferdinand Podiman",
   },
   description:
-    "Professional Color Grader with 8 years experience. Film, commercial & music video grading. 10+ events, 660+ audience taught. DaVinci Resolve, ACES, HDR. Based in Jakarta.",
+    "Professional Colorist since 2018. Film, commercial & music video grading. 10+ events, 660+ audience taught. DaVinci Resolve, ACES, HDR. Based in Jakarta.",
   keywords: [
-    "Color Grader",
+    "Colorist",
     "Colorist",
     "DaVinci Resolve",
     "Film Color Grading",
-    "Professional Color Grader",
+    "Professional Colorist",
     "Ferdinand Podiman",
     "Jakarta Colorist",
     "ACES Workflow",
@@ -37,15 +37,15 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://ferdicolourstudio.vercel.app",
-    siteName: "Ferdinand Podiman — Color Grader",
-    title: "Ferdinand Podiman | Professional Color Grader",
-    description: "Crafting cinematic visuals through color — 8 years, 10+ events, 660+ students.",
-    images: [{ url: "/images/og-image.jpg", width: 1200, height: 630, alt: "Ferdinand Podiman - Color Grader" }],
+    siteName: "Ferdinand Podiman — Colorist",
+    title: "Ferdinand Podiman | Professional Colorist",
+    description: "Crafting cinematic visuals through color — since 2018, 10+ events, 660+ students.",
+    images: [{ url: "/images/og-image.jpg", width: 1200, height: 630, alt: "Ferdinand Podiman - Colorist" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ferdinand Podiman | Professional Color Grader",
-    description: "Professional Color Grader — Film, Commercial, Music Video. 8 years experience.",
+    title: "Ferdinand Podiman | Professional Colorist",
+    description: "Professional Colorist — Film, Commercial, Music Video. Since 2018.",
     images: ["/images/og-image.jpg"],
   },
 };

@@ -44,7 +44,7 @@ export default function Navigation() {
             <span className="w-9 h-9 rounded-lg bg-[#d4a574] flex items-center justify-center font-mono text-xs font-bold text-black">FP</span>
             <span className="hidden sm:block">
               <span className="block text-sm font-bold tracking-widest text-stone-100 leading-none">FERDINAND</span>
-              <span className="block text-[10px] tracking-[0.3em] text-[#d4a574] leading-none">COLOR GRADER</span>
+              <span className="block text-[10px] tracking-[0.3em] text-[#d4a574] leading-none">COLORIST</span>
             </span>
           </Link>
 
