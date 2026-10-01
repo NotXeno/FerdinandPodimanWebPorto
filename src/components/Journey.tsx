@@ -10,12 +10,8 @@ export default function Journey() {
             <p className="text-[11px] tracking-[0.3em] uppercase text-[#d4a574]">The Journey</p>
             <h2 className="mt-2 text-3xl sm:text-4xl font-bold text-stone-100 leading-tight">Turning light into feeling since 2018</h2>
             <p className="mt-4 text-stone-400 leading-relaxed">{about.description}</p>
-            <div className="mt-6 rounded-2xl border-l-2 border-[#d4a574] bg-stone-900/70 p-5">
-              <p className="text-stone-200 italic">“{about.highlight}”</p>
-              <p className="mt-2 text-xs tracking-widest uppercase text-stone-500">— Ferdinand Podiman</p>
-            </div>
 
-            <div className="mt-10">
+            <div className="mt-8">
               <h3 className="text-sm font-bold tracking-widest uppercase text-stone-200">Expertise</h3>
               <div className="mt-4 space-y-5">
                 {about.skills.map((g) => (

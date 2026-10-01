@@ -23,7 +23,6 @@ export const about = {
   description: `I'm Ferdinand Podiman, a Professional Colorist based in Indonesia, shaping visuals that feel since 2018. From indie films to national commercials and music videos, I specialize in DaVinci Resolve and cinematic color science to translate directors' visions into emotion.
 
 Beyond the suite, I'm passionate about sharing knowledge. I've taught and presented at 10+ events — workshops, seminars, and masterclasses — reaching 660+ aspiring filmmakers, colorists, and students. I believe color is not just correction; it's storytelling.`,
-  highlight: "Color is where technical precision meets emotional intuition.",
   skills: [
     { category: "Color Grading", items: ["DaVinci Resolve", "Color Science", "Film Emulation", "HDR Grading", "ACES Workflow", "Look Development"] },
     { category: "Post Production", items: ["Adobe Premiere Pro", "Final Cut Pro", "After Effects", "Shot Matching", "Skin Tone Control", "Grain & Texture"] },
