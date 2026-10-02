@@ -20,9 +20,7 @@ export const stats = [
 ];
 
 export const about = {
-  description: `I'm Ferdinand Podiman, a Professional Colorist based in Indonesia, shaping visuals that feel since 2018. From indie films to national commercials and music videos, I specialize in DaVinci Resolve and cinematic color science to translate directors' visions into emotion.
-
-Beyond the suite, I'm passionate about sharing knowledge. I've taught and presented at 10+ events — workshops, seminars, and masterclasses — reaching 660+ aspiring filmmakers, colorists, and students. I believe color is not just correction; it's storytelling.`,
+  description: `Starting his video editing career in 2018 and pursuing film studies in 2019, Ferdinand Podiman has worked on commercial videos, product videos, and short films. Armed with official DaVinci Resolve certification from Blackmagic Design, he specializes in color grading and has shared his knowledge with 660+ participants through workshops and private classes. He now also works remotely as an Editor & Colorist for a creative agency based in Australia.`,
   experience: [
     {
       role: "Professional Colorist — Freelance",
