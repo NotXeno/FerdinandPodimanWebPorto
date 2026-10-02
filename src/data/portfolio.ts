@@ -23,22 +23,39 @@ export const about = {
   description: `Starting his video editing career in 2018 and pursuing film studies in 2019, Ferdinand Podiman has worked on commercial videos, product videos, and short films. Armed with official DaVinci Resolve certification from Blackmagic Design, he specializes in color grading and has shared his knowledge with 660+ participants through workshops and private classes. He now also works remotely as an Editor & Colorist for a creative agency based in Australia.`,
   experience: [
     {
-      role: "Professional Colorist — Freelance",
-      company: "Film, Commercial & Music Video",
-      period: "2016 — Present",
-      description: "Lead color grading for 100+ projects across narrative, commercial and music video. Collaborated with directors & DPs to develop signature looks and streamlined ACES/DaVinci pipelines.",
+      role: "Video Editor & Colorist",
+      company: "AN.Told (Remote from Sydney, Australia)",
+      period: "2023 — Present",
+      points: [
+        "Edited & color-graded Instagram Reels for Alan Stuart.",
+        "Performed video editing for Hospitality Cup's Instagram content.",
+        "Executed editing and color grading for White Horse Sydney Instagram content.",
+      ],
     },
     {
-      role: "Presenter & Speaker",
-      company: "10+ Industry Events & Seminars",
+      role: "Creative Director",
+      company: "Grafr Media (Work From Anywhere)",
+      period: "June 2023 — Present",
+      points: [
+        "Developed creative content concepts, scripts, and editorial posting schedules for diverse clients.",
+        "Shooting on-site photo & video sessions.",
+        "Directed and provided detailed technical briefs to editors for Instagram Reels and YouTube video production.",
+      ],
+    },
+    {
+      role: "Videographer, Editor, Colorist",
+      company: "CV Cahaya Mega Sukses (HHRR) (Work From Office)",
+      period: "January 2023 — July 2025",
+      points: [
+        "Managed on-site and studio-based photo and video shoots featuring models and diverse product lines.",
+        "Performed advanced video editing and color grading tailored for social media platforms, including TikTok and Instagram.",
+      ],
+    },
+    {
+      role: "Videographer, Video Editor and Colorist",
+      company: "Freelancer",
       period: "2018 — Present",
-      description: "Invited speaker for color grading masterclasses, film festivals and creative industry seminars. Shared workflows and case studies with 660+ attendees nationwide.",
-    },
-    {
-      role: "Teacher & Mentor",
-      company: "Workshops & Private Mentoring",
-      period: "2019 — Present",
-      description: "Designed and led hands-on grading workshops for beginners to advanced colorists. Mentored emerging talents on color theory, DaVinci Resolve and client work.",
+      points: [],
     },
   ],
 };

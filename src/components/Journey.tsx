@@ -21,7 +21,16 @@ export default function Journey() {
                       <span className="text-xs text-[#d4a574]">{e.period}</span>
                     </div>
                     <p className="text-xs text-stone-400">{e.company}</p>
-                    <p className="text-sm text-stone-300 mt-1">{e.description}</p>
+                    {e.points.length > 0 && (
+                      <ul className="mt-2 space-y-1.5">
+                        {e.points.map((pt, i) => (
+                          <li key={i} className="flex gap-2 text-sm text-stone-300 leading-relaxed">
+                            <span aria-hidden className="mt-[7px] w-1.5 h-1.5 shrink-0 rounded-full bg-[#d4a574]" />
+                            <span>{pt}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
                 ))}
               </div>
