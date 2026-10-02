@@ -79,7 +79,7 @@ export default function Contact() {
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.05 4.94A9.91 9.91 0 0012 1.95a9.87 9.87 0 00-8.51 14.86L1.95 23l6.36-1.67A9.87 9.87 0 0012 22.05a9.91 9.91 0 007.05-17.11z" /></svg>
                 Chat on WhatsApp
               </a>
-              <p className="text-[11px] text-stone-500 text-center">Form is demo-only. For instant reply use WhatsApp above. Photo: <span className="font-mono text-stone-400">public/images/avatar.webp</span> • Video: YouTube embed</p>
+              <p className="text-[11px] text-stone-500 text-center">For instant reply use WhatsApp above.</p>
             </form>
           </div>
         </div>

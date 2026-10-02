@@ -10,6 +10,22 @@ export default function Journey() {
             <p className="text-[11px] tracking-[0.3em] uppercase text-[#d4a574]">The Journey</p>
             <h2 className="mt-2 text-3xl sm:text-4xl font-bold text-stone-100 leading-tight">Turning light into feeling since 2018</h2>
             <p className="mt-4 text-stone-400 leading-relaxed">{about.description}</p>
+
+            <div className="mt-10 rounded-2xl border border-stone-800 bg-stone-900 p-6">
+              <h4 className="font-semibold text-stone-100">Experience</h4>
+              <div className="mt-4 space-y-4">
+                {about.experience.map((e) => (
+                  <div key={e.role} className="border-l-2 border-stone-800 pl-4">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <span className="font-medium text-stone-100 text-sm">{e.role}</span>
+                      <span className="text-xs text-[#d4a574]">{e.period}</span>
+                    </div>
+                    <p className="text-xs text-stone-400">{e.company}</p>
+                    <p className="text-sm text-stone-300 mt-1">{e.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
           <div>
@@ -25,22 +41,6 @@ export default function Journey() {
                       <h4 className="font-semibold text-stone-100">{j.title}</h4>
                     </div>
                     <p className="mt-1 text-sm text-stone-400">{j.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-10 rounded-2xl border border-stone-800 bg-stone-900 p-6">
-              <h4 className="font-semibold text-stone-100">Experience</h4>
-              <div className="mt-4 space-y-4">
-                {about.experience.map((e) => (
-                  <div key={e.role} className="border-l-2 border-stone-800 pl-4">
-                    <div className="flex flex-wrap items-center justify-between gap-2">
-                      <span className="font-medium text-stone-100 text-sm">{e.role}</span>
-                      <span className="text-xs text-[#d4a574]">{e.period}</span>
-                    </div>
-                    <p className="text-xs text-stone-400">{e.company}</p>
-                    <p className="text-sm text-stone-300 mt-1">{e.description}</p>
                   </div>
                 ))}
               </div>

@@ -260,71 +260,54 @@ export const events = [
   { title: "+ Online Classes", audience: "390+ total", year: "2023–2026", role: "Instructor", location: "Online" },
 ];
 
-export const onlineClasses = [
+export interface OnlineClassPhoto {
+  id: string;
+  title: string;
+  date: string;
+  image: string;
+  tags: string[];
+}
+
+export interface OnlineClassAlbum {
+  id: string;
+  title: string;
+  date: string;
+  cover: string;
+  photos: OnlineClassPhoto[];
+}
+
+// Online Classes — grouped by month. Screenshots in public/assets/online-class/ (.webp)
+export const onlineClassAlbums: OnlineClassAlbum[] = [
   {
-    id: "oc1",
-    title: "Color Grading Fundamentals — Session 1",
-    date: "Sep 11, 2023",
-    image: "/assets/online-class/Screenshot 2023-09-11 184216.webp",
-    tags: ["DaVinci Resolve", "Basics", "Live Class"],
+    id: "sep-2023",
+    title: "September 2023",
+    date: "September 2023",
+    cover: "/assets/online-class/Screenshot 2023-09-11 184216.webp",
+    photos: [
+      { id: "sep23-1", title: "Color Grading Fundamentals — Session 1", date: "Sep 11, 2023", image: "/assets/online-class/Screenshot 2023-09-11 184216.webp", tags: ["DaVinci Resolve", "Basics", "Live Class"] },
+      { id: "sep23-2", title: "Color Grading Fundamentals — Session 2", date: "Sep 11, 2023", image: "/assets/online-class/Screenshot 2023-09-11 200037.webp", tags: ["Node Structure", "Scopes", "Live Class"] },
+      { id: "sep23-3", title: "Advanced Look Development", date: "Sep 13, 2023", image: "/assets/online-class/Screenshot 2023-09-13 205645.webp", tags: ["Look Dev", "Film Emulation", "Advanced"] },
+      { id: "sep23-4", title: "Commercial Grading Workflow", date: "Sep 20, 2023", image: "/assets/online-class/Screenshot 2023-09-20 210307.webp", tags: ["Commercial", "ACES", "Client Work"] },
+    ],
   },
   {
-    id: "oc2",
-    title: "Color Grading Fundamentals — Session 2",
-    date: "Sep 11, 2023",
-    image: "/assets/online-class/Screenshot 2023-09-11 200037.webp",
-    tags: ["Node Structure", "Scopes", "Live Class"],
+    id: "aug-2025",
+    title: "August 2025",
+    date: "August 2025",
+    cover: "/assets/online-class/Screenshot 2025-08-04 173313.webp",
+    photos: [
+      { id: "aug25-1", title: "HDR Grading Masterclass", date: "Aug 4, 2025", image: "/assets/online-class/Screenshot 2025-08-04 173313.webp", tags: ["HDR", "Dolby Vision", "Masterclass"] },
+      { id: "aug25-2", title: "Skin Tone Mastery Workshop", date: "Aug 6, 2025", image: "/assets/online-class/Screenshot 2025-08-06 210731.webp", tags: ["Skin Tone", "Matching", "Workshop"] },
+      { id: "aug25-3", title: "Music Video Grading Techniques", date: "Aug 6, 2025", image: "/assets/online-class/Screenshot 2025-08-06 210801.webp", tags: ["Music Video", "Creative", "Workshop"] },
+      { id: "aug25-4", title: "Film Emulation Deep Dive", date: "Aug 11, 2025", image: "/assets/online-class/Screenshot 2025-08-11 011235.webp", tags: ["Film Emulation", "Grain", "Halation"] },
+      { id: "aug25-5", title: "Private Mentoring — Portfolio Review", date: "Aug 12, 2025", image: "/assets/online-class/Screenshot 2025-08-12 125356.webp", tags: ["Mentoring", "Portfolio Review", "1-on-1"] },
+      { id: "aug25-6", title: "Private Mentoring — Portfolio Review", date: "Aug 12, 2025", image: "/assets/online-class/Screenshot 2025-08-12 125620.webp", tags: ["Mentoring", "Portfolio Review", "1-on-1"] },
+    ],
   },
-  {
-    id: "oc3",
-    title: "Advanced Look Development",
-    date: "Sep 13, 2023",
-    image: "/assets/online-class/Screenshot 2023-09-13 205645.webp",
-    tags: ["Look Dev", "Film Emulation", "Advanced"],
-  },
-  {
-    id: "oc4",
-    title: "Commercial Grading Workflow",
-    date: "Sep 20, 2023",
-    image: "/assets/online-class/Screenshot 2023-09-20 210307.webp",
-    tags: ["Commercial", "ACES", "Client Work"],
-  },
-  {
-    id: "oc5",
-    title: "HDR Grading Masterclass",
-    date: "Aug 4, 2025",
-    image: "/assets/online-class/Screenshot 2025-08-04 173313.webp",
-    tags: ["HDR", "Dolby Vision", "Masterclass"],
-  },
-  {
-    id: "oc6",
-    title: "Skin Tone Mastery Workshop",
-    date: "Aug 6, 2025",
-    image: "/assets/online-class/Screenshot 2025-08-06 210731.webp",
-    tags: ["Skin Tone", "Matching", "Workshop"],
-  },
-  {
-    id: "oc7",
-    title: "Music Video Grading Techniques",
-    date: "Aug 6, 2025",
-    image: "/assets/online-class/Screenshot 2025-08-06 210801.webp",
-    tags: ["Music Video", "Creative", "Workshop"],
-  },
-  {
-    id: "oc8",
-    title: "Film Emulation Deep Dive",
-    date: "Aug 11, 2025",
-    image: "/assets/online-class/Screenshot 2025-08-11 011235.webp",
-    tags: ["Film Emulation", "Grain", "Halation"],
-  },
-  {
-    id: "oc9",
-    title: "Private Mentoring — Portfolio Review",
-    date: "Aug 12, 2025",
-    image: "/assets/online-class/Screenshot 2025-08-12 125356.webp",
-    tags: ["Mentoring", "Portfolio Review", "1-on-1"],
-},
 ];
+
+// Flat list kept for backwards-compat (derived from albums)
+export const onlineClasses: OnlineClassPhoto[] = onlineClassAlbums.flatMap((a) => a.photos);
 
 export interface OfflineClassPhoto {
   id: string;
