@@ -249,12 +249,15 @@ export const workshopAlbums: WorkshopAlbum[] = [
 export const workshops: WorkshopPhoto[] = workshopAlbums.flatMap((a) => a.photos);
 
 export const events = [
-  { title: "Color as Storytelling — Keynote", audience: "250+", year: "2024", role: "Keynote Speaker", location: "Jakarta Creative Summit" },
-  { title: "DaVinci Resolve Masterclass", audience: "120+", year: "2023", role: "Lead Instructor", location: "Film Workshop Series" },
-  { title: "Film Emulation Workshop", audience: "80+", year: "2023", role: "Presenter", location: "Indie Film Fest" },
-  { title: "Commercial Grading Breakdown", audience: "60+", year: "2022", role: "Speaker", location: "Adobe Creative Meetup" },
-  { title: "HDR Grading Seminar", audience: "90+", year: "2022", role: "Panelist", location: "Broadcast Tech Expo" },
-  { title: "+ 5 more events", audience: "660+ total", year: "2018–2024", role: "Teacher / Speaker", location: "Nationwide" },
+  { title: "Color Grading Workshop", audience: "15+", year: "2026", role: "Keynote Speaker", location: "Segi Film Institute" },
+  { title: "Color Grading Workshop", audience: "25+", year: "2026", role: "Keynote Speaker", location: "UDINUS Semarang" },
+  { title: "Color Grading Workshop", audience: "10+", year: "2026", role: "Keynote Speaker", location: "Life Messenger Community Church" },
+  { title: "Color Grading Workshop", audience: "50+", year: "2025", role: "Keynote Speaker", location: "DOSS Vaganza" },
+  { title: "Color Grading Workshop", audience: "35+", year: "2025", role: "Keynote Speaker", location: "Institut Seni Indonesia (ISI) Surakarta" },
+  { title: "Color Grading Workshop", audience: "35+", year: "2025", role: "Keynote Speaker", location: "Institut Seni Indonesia (ISI) Yogyakarta" },
+  { title: "Color Grading Workshop", audience: "60+", year: "2025", role: "Keynote Speaker", location: "Jogja Film Academy (JFA)" },
+  { title: "Color Grading Workshop", audience: "8", year: "2024", role: "Keynote Speaker", location: "Covenant City Church" },
+  { title: "+ Online Classes", audience: "390+ total", year: "2023–2026", role: "Instructor", location: "Online" },
 ];
 
 export const onlineClasses = [
