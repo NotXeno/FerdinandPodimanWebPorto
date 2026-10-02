@@ -33,8 +33,8 @@ export default function Journey() {
             <div className="mt-6 relative">
               <div className="absolute left-3 top-2 bottom-2 w-px bg-stone-800" />
               <div className="space-y-6">
-                {journey.map((j) => (
-                  <div key={j.year} className="relative pl-10">
+                {journey.map((j, idx) => (
+                  <div key={`${j.year}-${idx}`} className="relative pl-10">
                     <div className="absolute left-0 top-1.5 w-6 h-6 rounded-full bg-[#d4a574] border-4 border-[#0f0f0f] flex items-center justify-center" />
                     <div className="flex items-baseline gap-3">
                       <span className="text-xs font-mono text-[#d4a574]">{j.year}</span>

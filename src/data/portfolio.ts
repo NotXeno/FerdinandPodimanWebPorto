@@ -46,12 +46,14 @@ Beyond the suite, I'm passionate about sharing knowledge. I've taught and presen
 };
 
 export const journey = [
-  { year: "2016", title: "Journey Begins", desc: "Started grading indie shorts on DaVinci Resolve, obsessing over skin tones and film emulation." },
-  { year: "2018", title: "First Big Break", desc: "Graded first national commercial and began speaking at local filmmaker meetups." },
-  { year: "2020", title: "Teaching Era", desc: "Launched workshop series; 200+ students in first year. Refined ACES & HDR workflows." },
-  { year: "2022", title: "100 Projects Milestone", desc: "Crossed 100 graded projects — features, ads, and music videos with repeat clients." },
-  { year: "2024", title: "10+ Events, 660+ Audience", desc: "Recognized as go-to color educator. Keynote at major creative industry summit." },
-  { year: "Now", title: "Still Grading, Still Learning", desc: "Exploring HDR, film print emulation and pushing cinematic storytelling through color." },
+  { year: "2026", title: "The Creative Calling", desc: "Life Messenger Community Church" },
+  { year: "2026", title: "Editing & Audio Post Production", desc: "Segi Film Institute (SFI)" },
+  { year: "2026", title: "Color Grading in DaVinci Resolve", desc: "UDINUS Semarang" },
+  { year: "2025", title: "Your First Film Experience", desc: "DOSS Vaganza" },
+  { year: "2025", title: "Editing Beyond Limits DaVinci Resolve Roadshow", desc: "Jogja Film Academy" },
+  { year: "2025", title: "Introduction to DaVinci Resolve", desc: "ISI Surakarta • ISI Yogyakarta" },
+  { year: "2024", title: "Introduction to Color Grading and Editing in DaVinci Resolve", desc: "Mezink" },
+  { year: "2024", title: "Editing with DaVinci Resolve", desc: "Covenant City Church" },
 ];
 
 export const certificates = [
