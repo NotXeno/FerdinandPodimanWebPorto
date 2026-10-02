@@ -57,7 +57,7 @@ export const journey = [
 export const certificates = [
   {
     id: "c1",
-    title: "DaVinci Resolve Beginner Certification",
+    title: "The Beginner's Guide to DaVinci Resolve 2.0",
     issuer: "Blackmagic Design",
     year: "2025",
     image: "/assets/certificates/BEGINNER20-EN-ENDUSER_CertLetter_20250926_161939.webp",
@@ -66,8 +66,8 @@ export const certificates = [
   },
   {
     id: "c2",
-    title: "Certificate of Completion",
-    issuer: "Color Grading Program",
+    title: "Christian Film School",
+    issuer: "Tomorrow's Filmmakers",
     year: "2024",
     image: "/assets/certificates/Certificate of Completion - Ferdinand Podiman.webp",
     description: "Comprehensive color grading course completion — advanced workflows, look development, and client delivery.",
@@ -75,7 +75,7 @@ export const certificates = [
   },
   {
     id: "c3",
-    title: "Color Science & Grading Certification",
+    title: "The Colorist Guide to DaVinci Resolve 2.0",
     issuer: "Blackmagic Design",
     year: "2026",
     image: "/assets/certificates/COLOR20-EN-ENDUSER_CertLetter_20260125_135801.webp",
@@ -84,7 +84,7 @@ export const certificates = [
   },
   {
     id: "c4",
-    title: "DaVinci Resolve Editor Certification",
+    title: "The Editor's Guide to DaVinci Resolve 2.0",
     issuer: "Blackmagic Design",
     year: "2026",
     image: "/assets/certificates/EDIT20-EN-ENDUSER_CertLetter_20260212_212303.webp",
