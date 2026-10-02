@@ -10,22 +10,6 @@ export default function Journey() {
             <p className="text-[11px] tracking-[0.3em] uppercase text-[#d4a574]">The Journey</p>
             <h2 className="mt-2 text-3xl sm:text-4xl font-bold text-stone-100 leading-tight">Turning light into feeling since 2018</h2>
             <p className="mt-4 text-stone-400 leading-relaxed">{about.description}</p>
-
-            <div className="mt-8">
-              <h3 className="text-sm font-bold tracking-widest uppercase text-stone-200">Expertise</h3>
-              <div className="mt-4 space-y-5">
-                {about.skills.map((g) => (
-                  <div key={g.category}>
-                    <h4 className="text-xs tracking-[0.2em] uppercase text-[#d4a574] font-semibold flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-[#d4a574]" />{g.category}</h4>
-                    <div className="mt-2 flex flex-wrap gap-2">
-                      {g.items.map((s) => (
-                        <span key={s} className="px-3 py-1.5 rounded-full bg-stone-900 border border-stone-800 text-xs text-stone-300">{s}</span>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
 
           <div>
