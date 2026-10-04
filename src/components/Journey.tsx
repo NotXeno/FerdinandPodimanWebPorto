@@ -7,8 +7,7 @@ export default function Journey() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           <div>
-            <p className="text-[11px] tracking-[0.3em] uppercase text-[#d4a574]">The Journey</p>
-            <h2 className="mt-2 text-3xl sm:text-4xl font-bold text-stone-100 leading-tight">Turning light into feeling since 2018</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold leading-tight text-[#d4a574]">The Journey</h2>
             <p className="mt-4 text-stone-400 leading-relaxed">{about.description}</p>
 
             <div className="mt-10 rounded-2xl border border-stone-800 bg-stone-900 p-6">
@@ -20,7 +19,7 @@ export default function Journey() {
                       <span className="font-medium text-stone-100 text-sm">{e.role}</span>
                       <span className="text-xs text-[#d4a574]">{e.period}</span>
                     </div>
-                    <p className="text-xs text-stone-400">{e.company}</p>
+                    {e.company !== "" && <p className="text-xs text-stone-400">{e.company}</p>}
                     {e.points.length > 0 && (
                       <ul className="mt-2 space-y-1.5">
                         {e.points.map((pt, i) => (

@@ -20,16 +20,16 @@ export const stats = [
 ];
 
 export const about = {
-  description: `Starting his video editing career in 2018 and pursuing film studies in 2019, Ferdinand Podiman has worked on commercial videos, product videos, and short films. Armed with official DaVinci Resolve certification from Blackmagic Design, he specializes in color grading and has shared his knowledge with 660+ participants through workshops and private classes. He now also works remotely as an Editor & Colorist for a creative agency based in Australia.`,
+  description: `Starting his video editing career in 2018 and pursuing film studies in 2019, Ferdinand Podiman has worked on commercial videos, product videos, and short films. Armed with official DaVinci Resolve certification from Blackmagic Design, he specializes in color grading and has shared his knowledge with 660+ participants through workshops and private classes. He now also works remotely as an Editor & Colorist for an international creative agency.`,
   experience: [
     {
-      role: "Video Editor & Colorist",
-      company: "AN.Told (Remote from Sydney, Australia)",
-      period: "2023 — Present",
+      role: "Freelance Video Editor & Colorist",
+      company: "",
+      period: "May 2025 — Present",
       points: [
-        "Edited & color-graded Instagram Reels for Alan Stuart.",
-        "Performed video editing for Hospitality Cup's Instagram content.",
-        "Executed editing and color grading for White Horse Sydney Instagram content.",
+        "Edited and color-graded high-engagement Instagram Reels for an Australian media brand.",
+        "Managed end-to-end video editing for promotional Instagram content of a prominent hospitality and sports event.",
+        "Executed video editing and color grading for social media content for an international hospitality brand.",
       ],
     },
     {

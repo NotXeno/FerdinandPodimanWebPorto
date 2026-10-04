@@ -30,7 +30,7 @@ export default function Hero() {
             <p className="mt-3 text-[11px] tracking-[0.35em] uppercase text-stone-500 font-mono">Professional Colorist</p>
 
             <p className="mt-6 text-[17px] leading-relaxed text-stone-300 max-w-xl">
-              Crafting cinematic visuals & emotional stories through color. Shaping looks for film, commercial & music video since 2018 — and teaching 660+ filmmakers to see light differently.
+              My name is Ferdinand Podiman. Based in Indonesia, I am a professional videographer, video editor, and colorist. I am fully capable of working both independently and collaboratively within a team. Throughout my career, I have collaborated with both national and international clients.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
