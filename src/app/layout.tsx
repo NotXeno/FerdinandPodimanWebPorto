@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: "%s | Ferdinand Podiman",
   },
   description:
-    "Professional Colorist since 2018. Film, commercial & music video grading. 10+ events, 660+ audience taught. DaVinci Resolve, ACES, HDR. Based in Jakarta.",
+    "Professional Colorist since 2018. Film, commercial & music video grading. 10+ events, 660+ audience taught. DaVinci Resolve, ACES, HDR. Based in Tangerang.",
   keywords: [
     "Colorist",
     "Colorist",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     "Film Color Grading",
     "Professional Colorist",
     "Ferdinand Podiman",
-    "Jakarta Colorist",
+    "Tangerang Colorist",
     "ACES Workflow",
     "HDR Grading",
   ],

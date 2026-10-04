@@ -20,7 +20,7 @@ export default function Hero() {
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#d4a574]/30 bg-[#d4a574]/10 text-[#d4a574] text-[11px] tracking-[0.2em] uppercase font-medium mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-[#d4a574] animate-pulse" />
-              Available for grading — Film • Commercial • MV
+              Available for remote grading & teaching DaVinci Resolve
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-bold leading-[0.95] tracking-tight">
@@ -44,8 +44,7 @@ export default function Hero() {
             </div>
 
             <div className="mt-8 flex items-center gap-5 text-xs text-stone-500">
-              <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-emerald-500" /> Jakarta, Indonesia</span>
-              <span className="hidden sm:inline-flex items-center gap-2">• DaVinci Resolve • ACES • HDR</span>
+              <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-emerald-500" /> Tangerang, Indonesia</span>
             </div>
 
             {/* stats inline for mobile */}

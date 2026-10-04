@@ -6,7 +6,7 @@ export const personalInfo = {
   email: "ferdi.podiman@gmail.com",
   phone: "+62 821-1371-6093",
   whatsapp: "6282113716093", // WhatsApp — wa.me link
-  location: "Jakarta, Indonesia",
+  location: "Tangerang, Indonesia",
   avatar: "/images/avatar.webp",
   instagram: "https://instagram.com/ferdipodiman",
   linkedin: "https://www.linkedin.com/in/ferdinand-podiman/",
