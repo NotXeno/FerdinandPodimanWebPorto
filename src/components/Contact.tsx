@@ -4,7 +4,7 @@ import { contact, personalInfo } from "@/data/portfolio";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
-  const [status, setStatus] = useState<"idle" | "success">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
   const buildWaHref = () => {
     const parts: string[] = [];
@@ -19,13 +19,33 @@ export default function Contact() {
     return `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(text)}`;
   };
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = `[Portfolio] ${form.subject} — ${form.name}`;
-    const body = `Name: ${form.name}\nEmail: ${form.email}\nProject type: ${form.subject}\n\n${form.message}`;
-    window.location.href = `mailto:${contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setStatus("success");
-    setTimeout(() => setStatus("idle"), 5000);
+    setStatus("submitting");
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: "cbc96e6a-9cab-447e-81fc-377ed83ae6dd",
+          name: form.name,
+          email: form.email,
+          subject: `[Portfolio] ${form.subject} — ${form.name}`,
+          message: `Project type: ${form.subject}\n\n${form.message}`,
+          from_name: "Ferdinand Portfolio",
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setStatus("success");
+        setForm({ name: "", email: "", subject: "", message: "" });
+        setTimeout(() => setStatus("idle"), 5000);
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -65,7 +85,8 @@ export default function Contact() {
 
           <div className="rounded-[20px] border border-stone-800 bg-stone-900 p-6 sm:p-7">
             <h3 className="font-semibold text-stone-100">Send a message</h3>
-            {status === "success" && <div className="mt-4 p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm">Opening your email app with the message ready to send.</div>}
+            {status === "success" && <div className="mt-4 p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm">Message sent! I’ll reply within 24 hours.</div>}
+            {status === "error" && <div className="mt-4 p-3 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm">Something went wrong. Please try WhatsApp below or email <a className="underline" href={`mailto:${contact.email}`}>{contact.email}</a> directly.</div>}
             <form onSubmit={onSubmit} className="mt-6 space-y-4">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
@@ -85,8 +106,8 @@ export default function Contact() {
                 <label className="text-xs text-stone-400">Message</label>
                 <textarea required rows={4} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="mt-1 w-full px-4 py-3 rounded-xl bg-black border border-stone-800 text-stone-100 placeholder-stone-600 focus:outline-none focus:border-[#d4a574]/40 resize-y" placeholder="Tell me about timeline, camera, look…"></textarea>
               </div>
-              <button type="submit" className="w-full py-3.5 rounded-full bg-[#d4a574] text-black font-bold hover:bg-[#c9955a] transition-colors">
-                Send Message
+              <button type="submit" disabled={status === "submitting"} className="w-full py-3.5 rounded-full bg-[#d4a574] text-black font-bold hover:bg-[#c9955a] disabled:opacity-60 transition-colors">
+                {status === "submitting" ? "Sending…" : "Send Message"}
               </button>
               <a href={buildWaHref()} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full bg-[#25D366] text-black font-bold hover:bg-[#1ebe5d] transition-colors">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.05 4.94A9.91 9.91 0 0012 1.95a9.87 9.87 0 00-8.51 14.86L1.95 23l6.36-1.67A9.87 9.87 0 0012 22.05a9.91 9.91 0 007.05-17.11z" /></svg>
