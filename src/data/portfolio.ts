@@ -410,6 +410,24 @@ export const offlineClassAlbums: OfflineClassAlbum[] = [
 // Flat list kept for backwards-compat (derived from albums)
 export const offlineClasses: OfflineClassPhoto[] = offlineClassAlbums.flatMap((a) => a.photos);
 
+export type GradeSample = {
+  id: string;
+  title: string;
+  date: string;
+  before: string;
+  after: string;
+  aspect: string;
+};
+
+export const gradingSamples: GradeSample[] = [
+  { id: "grade-01", title: "Color Grade — Sample 01", date: "2026", before: "/images/before-after/before-screenshot-2026-10-15-160223.webp", after: "/images/before-after/after-screenshot-2026-10-15-160239.webp", aspect: "16/9" },
+  { id: "grade-02", title: "Color Grade — Sample 02", date: "2026", before: "/images/before-after/before-screenshot-2026-10-15-160706.webp", after: "/images/before-after/after-screenshot-2026-10-15-160717.webp", aspect: "16/9" },
+  { id: "grade-03", title: "Color Grade — Sample 03", date: "2026", before: "/images/before-after/before-screenshot-2026-10-15-160734.webp", after: "/images/before-after/after-screenshot-2026-10-15-160742.webp", aspect: "16/9" },
+  { id: "grade-04", title: "Color Grade — Sample 04", date: "2026", before: "/images/before-after/before-1-2-1-1-2-1.webp", after: "/images/before-after/after-1-2-2-1-2-2.webp", aspect: "9/16" },
+  { id: "grade-05", title: "Color Grade — Sample 05", date: "2026", before: "/images/before-after/before-1-3-1-1-3-1.webp", after: "/images/before-after/after-1-3-2-1-3-2.webp", aspect: "9/16" },
+  { id: "grade-06", title: "Color Grade — Sample 06", date: "2026", before: "/images/before-after/before-1-4-1-1-4-1.webp", after: "/images/before-after/after-1-4-2-1-4-2.webp", aspect: "9/16" },
+];
+
 export const contact = {
   email: personalInfo.email,
   phone: personalInfo.phone,

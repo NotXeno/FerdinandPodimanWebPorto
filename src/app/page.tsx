@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
+import ColorGrade from "@/components/ColorGrade";
 import Journey from "@/components/Journey";
 import Projects from "@/components/Projects";
 import Certificates from "@/components/Certificates";
@@ -13,6 +14,7 @@ export default function Home() {
       <Navigation />
       <main>
         <Hero />
+        <ColorGrade />
         <Journey />
         <Projects />
         <Certificates />

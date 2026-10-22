@@ -4,6 +4,7 @@ import Link from "next/link";
 
 const navItems = [
   { href: "#home", label: "Home" },
+  { href: "#color-grade", label: "Color Grade" },
   { href: "#journey", label: "Journey" },
   { href: "#workshop", label: "Workshop" },
   { href: "#certificates", label: "Certificates" },
@@ -18,7 +19,7 @@ export default function Navigation() {
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 20);
-      const ids = ["home", "journey", "workshop", "certificates", "contact"];
+      const ids = ["home", "color-grade", "journey", "workshop", "certificates", "contact"];
       for (const id of ids) {
         const el = document.getElementById(id);
         if (el) {
