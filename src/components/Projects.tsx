@@ -1,15 +1,16 @@
 "use client";
 import { useState } from "react";
-import { events, offlineClassAlbums, workshopAlbums, onlineClassAlbums } from "@/data/portfolio";
+import { events, offlineClassAlbums, workshopAlbums, onlineClassAlbums, assetAlbums } from "@/data/portfolio";
 import Lightbox, { type LightboxItem } from "@/components/Lightbox";
 
-type Tab = "Workshop" | "Online Classes" | "Offline Classes";
+type Tab = "Assets" | "Workshop" | "Online Classes" | "Offline Classes";
 
 export default function Projects() {
   const [active, setActive] = useState<Tab>("Workshop");
   const [activeOfflineAlbum, setActiveOfflineAlbum] = useState<string | null>(null);
   const [activeOnlineAlbum, setActiveOnlineAlbum] = useState<string | null>(null);
   const [activeWorkshopAlbum, setActiveWorkshopAlbum] = useState<string | null>(null);
+  const [activeAssetsAlbum, setActiveAssetsAlbum] = useState<string | null>(null);
   const [lightboxItems, setLightboxItems] = useState<LightboxItem[]>([]);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
@@ -47,6 +48,16 @@ export default function Projects() {
   }));
   const activeAlbum = offlineClassAlbums.find((a) => a.id === activeOfflineAlbum) ?? null;
 
+  const activeAssets = assetAlbums.find((a) => a.id === activeAssetsAlbum) ?? null;
+  const assetItems: LightboxItem[] = (activeAssetsAlbum
+    ? assetAlbums.find((a) => a.id === activeAssetsAlbum)?.photos ?? []
+    : []
+  ).map((p) => ({
+    image: p.image,
+    title: p.title,
+    subtitle: [activeAssets?.category, p.date].filter(Boolean).join(" • "),
+  }));
+
   return (
     <section id="workshop" className="py-20 sm:py-24 bg-[#0a0a0a]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -58,10 +69,10 @@ export default function Projects() {
             <p className="mt-2 text-stone-400 max-w-xl">On-stage moments, teaching sessions & the stages where I share it. Click any image to preview.</p>
           </div>
           <div className="flex flex-nowrap gap-1 p-1 rounded-full bg-stone-900 border border-stone-800 max-w-full overflow-x-auto">
-            {(["Workshop", "Online Classes", "Offline Classes"] as Tab[]).map((t) => (
+            {(["Assets", "Workshop", "Online Classes", "Offline Classes"] as Tab[]).map((t) => (
               <button
                 key={t}
-                onClick={() => { setActive(t); setActiveOfflineAlbum(null); setActiveOnlineAlbum(null); setActiveWorkshopAlbum(null); setLightboxIndex(null); }}
+                onClick={() => { setActive(t); setActiveOfflineAlbum(null); setActiveOnlineAlbum(null); setActiveWorkshopAlbum(null); setActiveAssetsAlbum(null); setLightboxIndex(null); }}
                 className={`shrink-0 whitespace-nowrap px-4 sm:px-5 py-2 rounded-full text-xs font-bold tracking-widest uppercase transition-colors ${active === t ? "bg-[#d4a574] text-black" : "text-stone-400 hover:text-stone-200"}`}
               >
                 {t}
@@ -319,6 +330,77 @@ export default function Projects() {
                       <div className="p-4">
                         <h3 className="font-semibold text-stone-100 leading-tight text-sm">{oc.title}</h3>
                         <p className="mt-1 text-xs text-stone-400">{oc.date}</p>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
+        )}
+        {active === "Assets" && (
+          <div id="assets" className="mt-10">
+            {!activeAssets ? (
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                {assetAlbums.map((album) => (
+                  <button
+                    key={album.id}
+                    onClick={() => setActiveAssetsAlbum(album.id)}
+                    className="group text-left rounded-2xl overflow-hidden border border-stone-800 bg-stone-900 hover:border-[#d4a574]/40 transition-colors cursor-pointer"
+                  >
+                    <div className="relative aspect-[4/3] bg-stone-800 overflow-hidden">
+                      <img
+                        src={album.cover}
+                        alt={album.title}
+                        className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+                      <span className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/70 border border-stone-700 text-[10px] tracking-widest uppercase text-stone-200">
+                        <span aria-hidden>📁</span> Folder
+                      </span>
+                      <span className="absolute bottom-3 left-3 px-2.5 py-1 rounded-full bg-[#d4a574] text-black text-[10px] font-bold tracking-widest uppercase">
+                        {album.photos.length} Photos
+                      </span>
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-stone-100 leading-tight text-sm">{album.title}</h3>
+                      <p className="mt-1 text-xs text-stone-400">{[album.date, album.category].filter(Boolean).join(" • ")}</p>
+                    </div>
+                  </button>
+                ))}
+              </div>
+            ) : (
+              <>
+                <button
+                  onClick={() => { setActiveAssetsAlbum(null); setLightboxIndex(null); }}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-stone-700 bg-stone-900 text-xs font-bold tracking-widest uppercase text-stone-300 hover:border-[#d4a574]/50 hover:text-[#d4a574] transition-colors"
+                >
+                  ← Back to folders
+                </button>
+                <div className="mt-4 flex items-baseline justify-between gap-4">
+                  <div>
+                    <h3 className="text-lg font-bold text-stone-100">{activeAssets.title}</h3>
+                    <p className="text-xs text-stone-400">{[activeAssets.date, activeAssets.category].filter(Boolean).join(" • ")} • {activeAssets.photos.length} stills</p>
+                  </div>
+                </div>
+                <div className="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                  {activeAssets.photos.map((p, i) => (
+                    <button
+                      key={p.id}
+                      onClick={() => openLightbox(assetItems, i)}
+                      className="group text-left rounded-2xl overflow-hidden border border-stone-800 bg-stone-900 hover:border-[#d4a574]/40 transition-colors cursor-zoom-in"
+                    >
+                      <div className="relative aspect-[16/9] bg-stone-800 overflow-hidden">
+                        <img
+                          src={p.image}
+                          alt={p.title}
+                          className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/70 border border-stone-700 text-[10px] tracking-widest uppercase text-stone-200">{activeAssets.category}</span>
+                        <span className="absolute bottom-3 right-3 px-2.5 py-1 rounded-full bg-black/70 border border-stone-700 text-[10px] tracking-widest uppercase text-[#d4a574]">⊕ Preview</span>
                       </div>
                     </button>
                   ))}
