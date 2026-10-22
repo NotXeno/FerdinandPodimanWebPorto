@@ -14,9 +14,9 @@ export default function Home() {
       <Navigation />
       <main>
         <Hero />
-        <ColorGrade />
         <Journey />
         <Projects />
+        <ColorGrade />
         <Certificates />
         <Contact />
       </main>
