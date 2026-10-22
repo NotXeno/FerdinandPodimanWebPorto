@@ -282,7 +282,6 @@ export interface OnlineClassPhoto {
   title: string;
   date: string;
   image: string;
-  tags: string[];
 }
 
 export interface OnlineClassAlbum {
@@ -293,38 +292,58 @@ export interface OnlineClassAlbum {
   photos: OnlineClassPhoto[];
 }
 
-// Online Classes — grouped by month. Screenshots in public/assets/online-class/ (.webp)
 export const onlineClassAlbums: OnlineClassAlbum[] = [
   {
-    id: "sep-2023",
-    title: "September 2023",
-    date: "September 2023",
-    cover: "/assets/online-class/Screenshot 2023-09-11 184216.webp",
+    id: "lmcc-the-creative-calling-online-class",
+    title: "LMCC The Creative Calling Online Class",
+    date: "2026",
+    cover: "/assets/online-class-webp/lmcc-the-creative-calling-online-class/screenshot-2026-10-15-154423.webp",
     photos: [
-      { id: "sep23-1", title: "Color Grading Fundamentals — Session 1", date: "Sep 11, 2023", image: "/assets/online-class/Screenshot 2023-09-11 184216.webp", tags: ["DaVinci Resolve", "Basics", "Live Class"] },
-      { id: "sep23-2", title: "Color Grading Fundamentals — Session 2", date: "Sep 11, 2023", image: "/assets/online-class/Screenshot 2023-09-11 200037.webp", tags: ["Node Structure", "Scopes", "Live Class"] },
-      { id: "sep23-3", title: "Advanced Look Development", date: "Sep 13, 2023", image: "/assets/online-class/Screenshot 2023-09-13 205645.webp", tags: ["Look Dev", "Film Emulation", "Advanced"] },
-      { id: "sep23-4", title: "Commercial Grading Workflow", date: "Sep 20, 2023", image: "/assets/online-class/Screenshot 2023-09-20 210307.webp", tags: ["Commercial", "ACES", "Client Work"] },
+      { id: "screenshot-2026-10-15-154423", title: "LMCC The Creative Calling Online Class", date: "2026", image: "/assets/online-class-webp/lmcc-the-creative-calling-online-class/screenshot-2026-10-15-154423.webp" },
+      { id: "screenshot-2026-10-15-154435", title: "LMCC The Creative Calling Online Class", date: "2026", image: "/assets/online-class-webp/lmcc-the-creative-calling-online-class/screenshot-2026-10-15-154435.webp" },
+      { id: "screenshot-2026-10-15-154452", title: "LMCC The Creative Calling Online Class", date: "2026", image: "/assets/online-class-webp/lmcc-the-creative-calling-online-class/screenshot-2026-10-15-154452.webp" },
+      { id: "screenshot-2026-10-15-154506", title: "LMCC The Creative Calling Online Class", date: "2026", image: "/assets/online-class-webp/lmcc-the-creative-calling-online-class/screenshot-2026-10-15-154506.webp" },
+      { id: "screenshot-2026-10-15-154514", title: "LMCC The Creative Calling Online Class", date: "2026", image: "/assets/online-class-webp/lmcc-the-creative-calling-online-class/screenshot-2026-10-15-154514.webp" },
+      { id: "screenshot-2026-10-15-154533", title: "LMCC The Creative Calling Online Class", date: "2026", image: "/assets/online-class-webp/lmcc-the-creative-calling-online-class/screenshot-2026-10-15-154533.webp" },
+      { id: "screenshot-2026-10-15-154555", title: "LMCC The Creative Calling Online Class", date: "2026", image: "/assets/online-class-webp/lmcc-the-creative-calling-online-class/screenshot-2026-10-15-154555.webp" },
     ],
   },
   {
-    id: "aug-2025",
-    title: "August 2025",
-    date: "August 2025",
-    cover: "/assets/online-class/Screenshot 2025-08-04 173313.webp",
+    id: "private-online-class",
+    title: "Private Online Class",
+    date: "2023 – 2026",
+    cover: "/assets/online-class-webp/private-online-class/screenshot-2023-09-11-200037.webp",
     photos: [
-      { id: "aug25-1", title: "HDR Grading Masterclass", date: "Aug 4, 2025", image: "/assets/online-class/Screenshot 2025-08-04 173313.webp", tags: ["HDR", "Dolby Vision", "Masterclass"] },
-      { id: "aug25-2", title: "Skin Tone Mastery Workshop", date: "Aug 6, 2025", image: "/assets/online-class/Screenshot 2025-08-06 210731.webp", tags: ["Skin Tone", "Matching", "Workshop"] },
-      { id: "aug25-3", title: "Music Video Grading Techniques", date: "Aug 6, 2025", image: "/assets/online-class/Screenshot 2025-08-06 210801.webp", tags: ["Music Video", "Creative", "Workshop"] },
-      { id: "aug25-4", title: "Film Emulation Deep Dive", date: "Aug 11, 2025", image: "/assets/online-class/Screenshot 2025-08-11 011235.webp", tags: ["Film Emulation", "Grain", "Halation"] },
-      { id: "aug25-5", title: "Private Mentoring — Portfolio Review", date: "Aug 12, 2025", image: "/assets/online-class/Screenshot 2025-08-12 125356.webp", tags: ["Mentoring", "Portfolio Review", "1-on-1"] },
-      { id: "aug25-6", title: "Private Mentoring — Portfolio Review", date: "Aug 12, 2025", image: "/assets/online-class/Screenshot 2025-08-12 125620.webp", tags: ["Mentoring", "Portfolio Review", "1-on-1"] },
+      { id: "screenshot-2023-09-11-200037", title: "Private Online Class", date: "2023 – 2026", image: "/assets/online-class-webp/private-online-class/screenshot-2023-09-11-200037.webp" },
+      { id: "screenshot-2023-09-20-210307", title: "Private Online Class", date: "2023 – 2026", image: "/assets/online-class-webp/private-online-class/screenshot-2023-09-20-210307.webp" },
+      { id: "screenshot-2025-08-06-210731", title: "Private Online Class", date: "2023 – 2026", image: "/assets/online-class-webp/private-online-class/screenshot-2025-08-06-210731.webp" },
+      { id: "screenshot-2025-08-06-210801", title: "Private Online Class", date: "2023 – 2026", image: "/assets/online-class-webp/private-online-class/screenshot-2025-08-06-210801.webp" },
+      { id: "screenshot-2025-08-12-125356", title: "Private Online Class", date: "2023 – 2026", image: "/assets/online-class-webp/private-online-class/screenshot-2025-08-12-125356.webp" },
+      { id: "screenshot-2025-08-12-125620", title: "Private Online Class", date: "2023 – 2026", image: "/assets/online-class-webp/private-online-class/screenshot-2025-08-12-125620.webp" },
+      { id: "screenshot-2026-10-15-154006", title: "Private Online Class", date: "2023 – 2026", image: "/assets/online-class-webp/private-online-class/screenshot-2026-10-15-154006.webp" },
+      { id: "screenshot-2026-10-15-154043", title: "Private Online Class", date: "2023 – 2026", image: "/assets/online-class-webp/private-online-class/screenshot-2026-10-15-154043.webp" },
+      { id: "screenshot-2026-10-15-154255", title: "Private Online Class", date: "2023 – 2026", image: "/assets/online-class-webp/private-online-class/screenshot-2026-10-15-154255.webp" },
+    ],
+  },
+  {
+    id: "segi-film-online-class",
+    title: "Segi Film Online Class",
+    date: "2026",
+    cover: "/assets/online-class-webp/segi-film-online-class/screenshot-2026-10-15-155051.webp",
+    photos: [
+      { id: "screenshot-2026-10-15-155051", title: "Segi Film Online Class", date: "2026", image: "/assets/online-class-webp/segi-film-online-class/screenshot-2026-10-15-155051.webp" },
+      { id: "screenshot-2026-10-15-155127", title: "Segi Film Online Class", date: "2026", image: "/assets/online-class-webp/segi-film-online-class/screenshot-2026-10-15-155127.webp" },
+      { id: "screenshot-2026-10-15-155207", title: "Segi Film Online Class", date: "2026", image: "/assets/online-class-webp/segi-film-online-class/screenshot-2026-10-15-155207.webp" },
+      { id: "screenshot-2026-10-15-155227", title: "Segi Film Online Class", date: "2026", image: "/assets/online-class-webp/segi-film-online-class/screenshot-2026-10-15-155227.webp" },
+      { id: "screenshot-2026-10-15-155243", title: "Segi Film Online Class", date: "2026", image: "/assets/online-class-webp/segi-film-online-class/screenshot-2026-10-15-155243.webp" },
+      { id: "screenshot-2026-10-15-155305", title: "Segi Film Online Class", date: "2026", image: "/assets/online-class-webp/segi-film-online-class/screenshot-2026-10-15-155305.webp" },
+      { id: "screenshot-2026-10-15-155359", title: "Segi Film Online Class", date: "2026", image: "/assets/online-class-webp/segi-film-online-class/screenshot-2026-10-15-155359.webp" },
     ],
   },
 ];
 
-// Flat list kept for backwards-compat (derived from albums)
 export const onlineClasses: OnlineClassPhoto[] = onlineClassAlbums.flatMap((a) => a.photos);
+
 
 export interface OfflineClassPhoto {
   id: string;
