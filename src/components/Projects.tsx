@@ -5,8 +5,46 @@ import Lightbox, { type LightboxItem } from "@/components/Lightbox";
 
 type Tab = "Assets" | "Workshop" | "Online Classes" | "Offline Classes";
 
+const PAGE_SIZE = 8;
+
+function Pager({ total, page, onChange }: { total: number; page: number; onChange: (p: number) => void }) {
+  const pages = Math.ceil(total / PAGE_SIZE);
+  if (pages <= 1) return null;
+  return (
+    <div className="mt-8 flex items-center justify-center gap-1.5">
+      <button
+        onClick={() => onChange(page - 1)}
+        disabled={page === 1}
+        aria-label="Previous page"
+        className="w-9 h-9 flex items-center justify-center rounded-full border border-stone-700 text-stone-300 hover:border-[#d4a574]/60 hover:text-[#d4a574] disabled:opacity-30 disabled:hover:border-stone-700 disabled:hover:text-stone-300 transition-colors cursor-pointer"
+      >
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
+      </button>
+      {Array.from({ length: pages }, (_, i) => i + 1).map((p) => (
+        <button
+          key={p}
+          onClick={() => onChange(p)}
+          aria-current={p === page}
+          className={`w-9 h-9 rounded-full text-xs font-bold tracking-widest uppercase transition-colors cursor-pointer ${p === page ? "bg-[#d4a574] text-black" : "border border-stone-700 text-stone-400 hover:text-stone-200 hover:border-stone-500"}`}
+        >
+          {p}
+        </button>
+      ))}
+      <button
+        onClick={() => onChange(page + 1)}
+        disabled={page === pages}
+        aria-label="Next page"
+        className="w-9 h-9 flex items-center justify-center rounded-full border border-stone-700 text-stone-300 hover:border-[#d4a574]/60 hover:text-[#d4a574] disabled:opacity-30 disabled:hover:border-stone-700 disabled:hover:text-stone-300 transition-colors cursor-pointer"
+      >
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+      </button>
+    </div>
+  );
+}
+
 export default function Projects() {
   const [active, setActive] = useState<Tab>("Workshop");
+  const [page, setPage] = useState(1);
   const [activeOfflineAlbum, setActiveOfflineAlbum] = useState<string | null>(null);
   const [activeOnlineAlbum, setActiveOnlineAlbum] = useState<string | null>(null);
   const [activeWorkshopAlbum, setActiveWorkshopAlbum] = useState<string | null>(null);
@@ -19,6 +57,8 @@ export default function Projects() {
     setLightboxIndex(index);
   };
   const closeLightbox = () => setLightboxIndex(null);
+
+  const paged = <T,>(arr: T[]) => arr.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   const workshopItems: LightboxItem[] = (activeWorkshopAlbum
     ? workshopAlbums.find((a) => a.id === activeWorkshopAlbum)?.photos ?? []
@@ -72,7 +112,7 @@ export default function Projects() {
             {(["Assets", "Workshop", "Online Classes", "Offline Classes"] as Tab[]).map((t) => (
               <button
                 key={t}
-                onClick={() => { setActive(t); setActiveOfflineAlbum(null); setActiveOnlineAlbum(null); setActiveWorkshopAlbum(null); setActiveAssetsAlbum(null); setLightboxIndex(null); }}
+                onClick={() => { setActive(t); setActiveOfflineAlbum(null); setActiveOnlineAlbum(null); setActiveWorkshopAlbum(null); setActiveAssetsAlbum(null); setLightboxIndex(null); setPage(1); }}
                 className={`shrink-0 whitespace-nowrap px-4 sm:px-5 py-2 rounded-full text-xs font-bold tracking-widest uppercase transition-colors ${active === t ? "bg-[#d4a574] text-black" : "text-stone-400 hover:text-stone-200"}`}
               >
                 {t}
@@ -86,10 +126,10 @@ export default function Projects() {
             {!activeWorkshop ? (
               <>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                  {workshopAlbums.map((album) => (
+                  {paged(workshopAlbums).map((album) => (
                     <button
                       key={album.id}
-                      onClick={() => setActiveWorkshopAlbum(album.id)}
+                      onClick={() => { setActiveWorkshopAlbum(album.id); setPage(1); }}
                       className="group text-left rounded-2xl overflow-hidden border border-stone-800 bg-stone-900 hover:border-[#d4a574]/40 transition-colors cursor-pointer"
                     >
                       <div className="relative aspect-[4/3] bg-stone-800 overflow-hidden">
@@ -113,12 +153,13 @@ export default function Projects() {
                       </div>
                     </button>
                   ))}
-                </div>
-              </>
-            ) : (
-              <>
-                <button
-                  onClick={() => { setActiveWorkshopAlbum(null); setLightboxIndex(null); }}
+                 </div>
+                 <Pager total={workshopAlbums.length} page={page} onChange={setPage} />
+               </>
+             ) : (
+               <>
+                 <button
+                   onClick={() => { setActiveWorkshopAlbum(null); setLightboxIndex(null); setPage(1); }}
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-stone-700 bg-stone-900 text-xs font-bold tracking-widest uppercase text-stone-300 hover:border-[#d4a574]/50 hover:text-[#d4a574] transition-colors"
                 >
                   ← Back to folders
@@ -130,10 +171,10 @@ export default function Projects() {
                   </div>
                 </div>
                 <div className="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                  {activeWorkshop.photos.map((w, i) => (
+                  {paged(activeWorkshop.photos).map((w, i) => (
                     <button
                       key={w.id}
-                      onClick={() => openLightbox(workshopItems, i)}
+                      onClick={() => openLightbox(workshopItems, (page - 1) * PAGE_SIZE + i)}
                       className="group text-left rounded-2xl overflow-hidden border border-stone-800 bg-stone-900 hover:border-[#d4a574]/40 transition-colors cursor-zoom-in"
                     >
                       <div className="relative aspect-[4/3] bg-stone-800 overflow-hidden">
@@ -153,9 +194,10 @@ export default function Projects() {
                       </div>
                     </button>
                   ))}
-                </div>
-              </>
-            )}
+                 </div>
+                 <Pager total={activeWorkshop.photos.length} page={page} onChange={setPage} />
+               </>
+             )}
 
             {/* speaking engagements — merged from Events */}
             <div className="mt-10">
@@ -188,10 +230,10 @@ export default function Projects() {
             {!activeOnline ? (
               <>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                  {onlineClassAlbums.map((album) => (
+                  {paged(onlineClassAlbums).map((album) => (
                     <button
                       key={album.id}
-                      onClick={() => setActiveOnlineAlbum(album.id)}
+                      onClick={() => { setActiveOnlineAlbum(album.id); setPage(1); }}
                       className="group text-left rounded-2xl overflow-hidden border border-stone-800 bg-stone-900 hover:border-[#d4a574]/40 transition-colors cursor-pointer"
                     >
                       <div className="relative aspect-[16/10] bg-stone-800 overflow-hidden">
@@ -215,12 +257,13 @@ export default function Projects() {
                       </div>
                     </button>
                   ))}
-                </div>
-              </>
-            ) : (
-              <>
-                <button
-                  onClick={() => { setActiveOnlineAlbum(null); setLightboxIndex(null); }}
+                 </div>
+                 <Pager total={onlineClassAlbums.length} page={page} onChange={setPage} />
+               </>
+             ) : (
+               <>
+                 <button
+                   onClick={() => { setActiveOnlineAlbum(null); setLightboxIndex(null); setPage(1); }}
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-stone-700 bg-stone-900 text-xs font-bold tracking-widest uppercase text-stone-300 hover:border-[#d4a574]/50 hover:text-[#d4a574] transition-colors"
                 >
                   ← Back to folders
@@ -232,10 +275,10 @@ export default function Projects() {
                   </div>
                 </div>
                 <div className="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                  {activeOnline.photos.map((oc, i) => (
+                  {paged(activeOnline.photos).map((oc, i) => (
                     <button
                       key={oc.id}
-                      onClick={() => openLightbox(onlineItems, i)}
+                      onClick={() => openLightbox(onlineItems, (page - 1) * PAGE_SIZE + i)}
                       className="group text-left rounded-2xl overflow-hidden border border-stone-800 bg-stone-900 hover:border-[#d4a574]/40 transition-colors cursor-zoom-in"
                     >
                       <div className="relative aspect-[16/10] bg-stone-800 overflow-hidden">
@@ -255,9 +298,10 @@ export default function Projects() {
                       </div>
                     </button>
                   ))}
-                </div>
-              </>
-            )}
+                 </div>
+                 <Pager total={activeOnline.photos.length} page={page} onChange={setPage} />
+               </>
+             )}
           </div>
         )}
 
@@ -266,10 +310,10 @@ export default function Projects() {
             {!activeAlbum ? (
               <>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                  {offlineClassAlbums.map((album) => (
+                  {paged(offlineClassAlbums).map((album) => (
                     <button
                       key={album.id}
-                      onClick={() => setActiveOfflineAlbum(album.id)}
+                      onClick={() => { setActiveOfflineAlbum(album.id); setPage(1); }}
                       className="group text-left rounded-2xl overflow-hidden border border-stone-800 bg-stone-900 hover:border-[#d4a574]/40 transition-colors cursor-pointer"
                     >
                       <div className="relative aspect-[4/3] bg-stone-800 overflow-hidden">
@@ -293,12 +337,13 @@ export default function Projects() {
                       </div>
                     </button>
                   ))}
-                </div>
-              </>
-            ) : (
-              <>
-                <button
-                  onClick={() => { setActiveOfflineAlbum(null); setLightboxIndex(null); }}
+                 </div>
+                 <Pager total={offlineClassAlbums.length} page={page} onChange={setPage} />
+               </>
+             ) : (
+               <>
+                 <button
+                   onClick={() => { setActiveOfflineAlbum(null); setLightboxIndex(null); setPage(1); }}
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-stone-700 bg-stone-900 text-xs font-bold tracking-widest uppercase text-stone-300 hover:border-[#d4a574]/50 hover:text-[#d4a574] transition-colors"
                 >
                   ← Back to folders
@@ -310,10 +355,10 @@ export default function Projects() {
                   </div>
                 </div>
                 <div className="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                  {activeAlbum.photos.map((oc, i) => (
+                  {paged(activeAlbum.photos).map((oc, i) => (
                     <button
                       key={oc.id}
-                      onClick={() => openLightbox(offlineItems, i)}
+                      onClick={() => openLightbox(offlineItems, (page - 1) * PAGE_SIZE + i)}
                       className="group text-left rounded-2xl overflow-hidden border border-stone-800 bg-stone-900 hover:border-[#d4a574]/40 transition-colors cursor-zoom-in"
                     >
                       <div className="relative aspect-[4/3] bg-stone-800 overflow-hidden">
@@ -333,19 +378,21 @@ export default function Projects() {
                       </div>
                     </button>
                   ))}
-                </div>
-              </>
-            )}
+                 </div>
+                 <Pager total={activeAlbum.photos.length} page={page} onChange={setPage} />
+               </>
+             )}
           </div>
         )}
         {active === "Assets" && (
           <div id="assets" className="mt-10">
             {!activeAssets ? (
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                {assetAlbums.map((album) => (
+              <>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                {paged(assetAlbums).map((album) => (
                   <button
                     key={album.id}
-                    onClick={() => setActiveAssetsAlbum(album.id)}
+                    onClick={() => { setActiveAssetsAlbum(album.id); setPage(1); }}
                     className="group text-left rounded-2xl overflow-hidden border border-stone-800 bg-stone-900 hover:border-[#d4a574]/40 transition-colors cursor-pointer"
                   >
                     <div className="relative aspect-[4/3] bg-stone-800 overflow-hidden">
@@ -370,10 +417,12 @@ export default function Projects() {
                   </button>
                 ))}
               </div>
+              <Pager total={assetAlbums.length} page={page} onChange={setPage} />
+              </>
             ) : (
               <>
                 <button
-                  onClick={() => { setActiveAssetsAlbum(null); setLightboxIndex(null); }}
+                  onClick={() => { setActiveAssetsAlbum(null); setLightboxIndex(null); setPage(1); }}
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-stone-700 bg-stone-900 text-xs font-bold tracking-widest uppercase text-stone-300 hover:border-[#d4a574]/50 hover:text-[#d4a574] transition-colors"
                 >
                   ← Back to folders
@@ -385,10 +434,10 @@ export default function Projects() {
                   </div>
                 </div>
                 <div className="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                  {activeAssets.photos.map((p, i) => (
+                  {paged(activeAssets.photos).map((p, i) => (
                     <button
                       key={p.id}
-                      onClick={() => openLightbox(assetItems, i)}
+                      onClick={() => openLightbox(assetItems, (page - 1) * PAGE_SIZE + i)}
                       className="group text-left rounded-2xl overflow-hidden border border-stone-800 bg-stone-900 hover:border-[#d4a574]/40 transition-colors cursor-zoom-in"
                     >
                       <div className="relative aspect-[16/9] bg-stone-800 overflow-hidden">
@@ -404,9 +453,10 @@ export default function Projects() {
                       </div>
                     </button>
                   ))}
-                </div>
-              </>
-            )}
+                 </div>
+                 <Pager total={activeAssets.photos.length} page={page} onChange={setPage} />
+               </>
+             )}
           </div>
         )}
 
