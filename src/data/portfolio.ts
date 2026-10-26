@@ -297,15 +297,15 @@ export const workshopAlbums: WorkshopAlbum[] = [
 export const workshops: WorkshopPhoto[] = workshopAlbums.flatMap((a) => a.photos);
 
 export const events = [
-  { title: "Color Grading Workshop", audience: "15+", year: "2026", role: "Keynote Speaker", location: "Segi Film Institute" },
-  { title: "Color Grading Workshop", audience: "25+", year: "2026", role: "Keynote Speaker", location: "UDINUS Semarang" },
-  { title: "Color Grading Workshop", audience: "10+", year: "2026", role: "Keynote Speaker", location: "Life Messenger Community Church" },
-  { title: "Color Grading Workshop", audience: "50+", year: "2025", role: "Keynote Speaker", location: "DOSS Vaganza" },
-  { title: "Color Grading Workshop", audience: "35+", year: "2025", role: "Keynote Speaker", location: "Institut Seni Indonesia (ISI) Surakarta" },
-  { title: "Color Grading Workshop", audience: "35+", year: "2025", role: "Keynote Speaker", location: "Institut Seni Indonesia (ISI) Yogyakarta" },
-  { title: "Color Grading Workshop", audience: "60+", year: "2025", role: "Keynote Speaker", location: "Jogja Film Academy (JFA)" },
-  { title: "Color Grading Workshop", audience: "8", year: "2024", role: "Keynote Speaker", location: "Covenant City Church" },
-  { title: "+ Online Classes", audience: "390+ total", year: "2023–2026", role: "Instructor", location: "Online" },
+  { title: "Color Grading Workshop", audience: "15+", year: "2026", location: "Segi Film Institute" },
+  { title: "Color Grading Workshop", audience: "25+", year: "2026", location: "UDINUS Semarang" },
+  { title: "Color Grading Workshop", audience: "10+", year: "2026", location: "Life Messenger Community Church" },
+  { title: "Color Grading Workshop", audience: "50+", year: "2025", location: "DOSS Vaganza" },
+  { title: "Color Grading Workshop", audience: "35+", year: "2025", location: "Institut Seni Indonesia (ISI) Surakarta" },
+  { title: "Color Grading Workshop", audience: "35+", year: "2025", location: "Institut Seni Indonesia (ISI) Yogyakarta" },
+  { title: "Color Grading Workshop", audience: "60+", year: "2025", location: "Jogja Film Academy (JFA)" },
+  { title: "Color Grading Workshop", audience: "8", year: "2024", location: "Covenant City Church" },
+  { title: "+ Online Classes", audience: "390+ total", year: "2023–2026", location: "Online" },
 ];
 
 export interface OnlineClassPhoto {

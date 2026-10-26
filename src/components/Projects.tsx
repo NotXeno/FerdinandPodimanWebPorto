@@ -204,20 +204,18 @@ export default function Projects() {
               <h3 className="text-sm font-bold tracking-widest uppercase text-stone-200">Speaking Engagements</h3>
               <div className="mt-4 rounded-2xl border border-stone-800 overflow-hidden">
                 <div className="grid grid-cols-12 gap-0 bg-stone-900 px-4 sm:px-6 py-3 text-[11px] tracking-widest uppercase text-stone-500 font-semibold">
-                  <span className="col-span-6 sm:col-span-5">Event</span>
-                  <span className="hidden sm:block col-span-2">Audience</span>
-                  <span className="col-span-3 sm:col-span-2">Year</span>
-                  <span className="col-span-3 sm:col-span-3">Role</span>
+                  <span className="col-span-6 sm:col-span-6">Event</span>
+                  <span className="hidden sm:block col-span-3">Audience</span>
+                  <span className="col-span-6 sm:col-span-3">Year</span>
                 </div>
                 {events.map((e, idx) => (
                   <div key={idx} className={`grid grid-cols-12 gap-0 px-4 sm:px-6 py-4 text-sm items-center ${idx % 2 === 0 ? "bg-[#0a0a0a]" : "bg-stone-900/40"} border-t border-stone-800`}>
-                    <div className="col-span-6 sm:col-span-5">
+                    <div className="col-span-6 sm:col-span-6">
                       <div className="font-medium text-stone-100 leading-tight">{e.title}</div>
                       <div className="text-xs text-stone-500">{e.location}</div>
                     </div>
-                    <div className="hidden sm:block col-span-2 text-[#d4a574] font-semibold">{e.audience}</div>
-                    <div className="col-span-3 sm:col-span-2 text-stone-400">{e.year} <span className="sm:hidden text-[#d4a574]">• {e.audience}</span></div>
-                    <div className="col-span-3 sm:col-span-3"><span className="inline-flex px-2.5 py-1 rounded-full bg-[#d4a574]/10 border border-[#d4a574]/20 text-xs text-[#d4a574]">{e.role}</span></div>
+                    <div className="hidden sm:block col-span-3 text-[#d4a574] font-semibold">{e.audience}</div>
+                    <div className="col-span-6 sm:col-span-3 text-stone-400">{e.year} <span className="sm:hidden text-[#d4a574]">• {e.audience}</span></div>
                   </div>
                 ))}
               </div>
