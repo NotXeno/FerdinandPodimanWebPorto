@@ -473,9 +473,9 @@ export const gradingSamples: GradeSample[] = [
   { id: "grade-01", title: "Cocktail", date: "2026", before: "/images/before-after/before-screenshot-2026-10-15-160223.webp", after: "/images/before-after/after-screenshot-2026-10-15-160239.webp", aspect: "16/9" },
   { id: "grade-02", title: "Night Train", date: "2026", before: "/images/before-after/before-screenshot-2026-10-15-160706.webp", after: "/images/before-after/after-screenshot-2026-10-15-160717.webp", aspect: "16/9" },
   { id: "grade-03", title: "LRT Station", date: "2026", before: "/images/before-after/before-screenshot-2026-10-15-160734.webp", after: "/images/before-after/after-screenshot-2026-10-15-160742.webp", aspect: "16/9" },
-  { id: "grade-04", title: "City Light", date: "2026", before: "/images/before-after/before-1-2-1-1-2-1.webp", after: "/images/before-after/after-1-2-2-1-2-2.webp", aspect: "9/16" },
+  { id: "grade-04", title: "Bundaran HI, Jakarta", date: "2026", before: "/images/before-after/before-1-2-1-1-2-1.webp", after: "/images/before-after/after-1-2-2-1-2-2.webp", aspect: "9/16" },
   { id: "grade-05", title: "City Light", date: "2026", before: "/images/before-after/before-1-3-1-1-3-1.webp", after: "/images/before-after/after-1-3-2-1-3-2.webp", aspect: "9/16" },
-  { id: "grade-06", title: "City Light", date: "2026", before: "/images/before-after/before-1-4-1-1-4-1.webp", after: "/images/before-after/after-1-4-2-1-4-2.webp", aspect: "9/16" },
+  { id: "grade-06", title: "Hotel Indonesia Kempinski", date: "2026", before: "/images/before-after/before-1-4-1-1-4-1.webp", after: "/images/before-after/after-1-4-2-1-4-2.webp", aspect: "9/16" },
 ];
 
 export type AssetPhoto = { id: string; title: string; date: string; image: string };
